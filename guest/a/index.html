@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Free Time in Japan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f9f5f2;--card:#fff;--ink:#242429;--body:#3e3e3e;--mute:#8a8a8a;--line:#242429;--hair:#ddd6cf;
+  --sans:"Gill Sans","Gill Sans MT",Avenir,"Helvetica Neue",sans-serif;--mono:"Fira Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:96px}
+img{display:block;width:100%;height:100%;object-fit:cover}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+/* top line */
+.top{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:14px 0 12px}
+/* masthead */
+.mast{padding:20px 0 0}
+.mast h1{font-weight:500;letter-spacing:-.02em;line-height:.86;white-space:nowrap;display:inline-block}
+.mast .sub{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:14px;padding:12px 0;font-size:17px;line-height:1.35;color:var(--body)}
+.mast .sub p{max-width:30em}
+.mast .sub .mono{white-space:nowrap;align-self:flex-end;color:var(--ink)}
+
+/* filter */
+.filter{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--hair)}
+.filter .wrap{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;padding-top:14px;padding-bottom:12px}
+.filter .wrap::-webkit-scrollbar{display:none}
+.filter button{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding:4px 0;border-bottom:1px solid transparent;white-space:nowrap}
+.filter button[aria-pressed=true]{color:var(--ink);border-color:var(--ink)}
+
+/* stories */
+.list{display:grid;gap:44px 28px;grid-template-columns:1fr;padding-top:28px}
+.st .ph{position:relative;aspect-ratio:3/2;overflow:hidden;background:#e9e3dc}
+.st .tag{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:5px;padding:5px 8px 4px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.st .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px}
+.st h2{font-size:25px;font-weight:500;line-height:1.12;letter-spacing:-.01em}
+.st .when{font-family:var(--mono);font-size:12px;letter-spacing:.04em;white-space:nowrap;color:var(--ink)}
+.st .d{margin-top:8px;font-size:17px;line-height:1.45;color:var(--body);max-width:34em}
+.st dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin-top:14px;padding-top:12px;border-top:1px solid var(--hair);font-size:15px;color:var(--body)}
+.st dt{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding-top:2px}
+.st .ft{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.st .by{font-size:15px;color:var(--body)}
+.add{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:5px;padding:10px 12px 9px;min-height:40px}
+.add[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+
+/* featured (first story) */
+.st.feat h2{font-size:clamp(30px,8vw,52px);line-height:1.02}
+
+@media (min-width:760px){
+  .wrap{padding:0 40px}
+  .list{grid-template-columns:1fr 1fr;padding-top:40px}
+  .st.feat{grid-column:1/-1;display:grid;grid-template-columns:7fr 5fr;gap:0 40px;align-items:end;padding-bottom:44px;border-bottom:1px solid var(--line)}
+  .st.feat .hd{display:block;margin-top:0}
+  .st.feat .when{display:block;margin-top:12px}
+}
+@media (min-width:1100px){.list{grid-template-columns:repeat(3,1fr)}}
+
+/* my list bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--ink);color:var(--paper);transform:translateY(110%);transition:transform .25s}
+.bar.on{transform:none}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.bar button{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--paper);border-radius:5px;padding:10px 12px 9px}
+dialog{border:0;padding:0;margin:auto auto 0;width:100%;max-width:640px;background:var(--paper);color:var(--ink)}
+dialog::backdrop{background:rgba(20,20,24,.5)}
+dialog .in{padding:22px 16px 26px}
+dialog h3{font-size:28px;font-weight:500}
+dialog ol{margin:14px 0 18px 20px;font-size:17px;line-height:1.5}
+dialog .row{display:flex;gap:10px}
+dialog .row button{flex:1}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:16px 0 0;font-size:13px;line-height:1.5;color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top mono"><span>Tokyo · Yokohama · Kanazawa</span><span>19 picks</span></div>
+  <header class="mast">
+    <h1>Free Time</h1>
+    <div class="sub"><p>Things you can do on your free days. Real hosts, real places. Pick the ones you like and send me your list.</p><span class="mono">— Yuuki</span></div>
+  </header>
+</div>
+<nav class="filter" aria-label="Filter"><div class="wrap" id="f"></div></nav>
+<main class="wrap"><div class="list" id="list"></div>
+<footer><p id="cr"></p></footer></main>
+
+<div class="bar" id="bar"><div class="wrap"><span class="mono" id="cnt"></span><button id="open">See my list</button></div></div>
+<dialog id="dlg"><div class="in"><h3>My list</h3><ol id="ol"></ol><div class="row"><button class="add" id="copy">Copy list</button><button class="add" id="close">Close</button></div></div></dialog>
+
+<script src="../../data/exp.js"></script>
+<script src="../data-en.js"></script>
+<script>
+const X=window.EXP,EN=window.EN,$=id=>document.getElementById(id),picked=new Set();
+const CATS=[["all","All"],["anime","Anime & games"],["food","Food"],["make","Make"],["walk","Walk"],["outdoor","Outdoor"]];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad=n=>String(n).padStart(2,"0");
+$("f").innerHTML=CATS.map(([k,l])=>`<button data-k="${k}" aria-pressed="${k=="all"}">${l}</button>`).join("");
+function render(cat){
+  const keys=ORDER.filter(k=>cat=="all"||EN[k].cat==cat);
+  $("list").innerHTML=keys.map((k,i)=>{const e=EN[k],x=X[k],tour=x.kind=="tour";
+    const by=tour?(x.rating?`with ${e.host} · ★ ${x.rating} (${x.reviews})`:`with ${e.host}`):"Route by Yuuki";
+    return `<article class="st${i==0?" feat":""}">
+      <div class="ph"><img src="../../img/${x.img}" alt=""><span class="tag">${pad(i+1)} · ${esc(e.area)}</span></div>
+      <div><div class="hd"><h2>${esc(e.t)}</h2><span class="when">${esc(e.dur)}</span></div>
+      <p class="d">${esc(e.d)}</p>
+      <dl><dt>Start</dt><dd>${esc(e.start)}</dd><dt>Meet</dt><dd>${esc(e.meet)}</dd>${e.cap?`<dt>Group</dt><dd>${esc(e.cap)}${e.age?" · age "+e.age:""}</dd>`:""}</dl>
+      <div class="ft"><span class="by">${esc(by)}</span><button class="add" data-k="${k}" aria-pressed="${picked.has(k)}">${picked.has(k)?"On my list":"Add to list"}</button></div></div>
+    </article>`}).join("");
+}
+function sync(){$("bar").classList.toggle("on",picked.size>0);$("cnt").textContent=`My list · ${picked.size}`;}
+$("f").onclick=ev=>{const b=ev.target.closest("button");if(!b)return;
+  $("f").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x==b));render(b.dataset.k)};
+$("list").onclick=ev=>{const b=ev.target.closest(".add");if(!b)return;const k=b.dataset.k;
+  picked.has(k)?picked.delete(k):picked.add(k);b.setAttribute("aria-pressed",picked.has(k));b.textContent=picked.has(k)?"On my list":"Add to list";sync()};
+const listText=()=>"My picks:\n"+[...picked].map(k=>`- ${EN[k].t} (${EN[k].area}, ${EN[k].dur})`).join("\n");
+$("open").onclick=()=>{$("ol").innerHTML=[...picked].map(k=>`<li>${esc(EN[k].t)}</li>`).join("");$("dlg").showModal()};
+$("close").onclick=()=>$("dlg").close();
+$("copy").onclick=async()=>{try{await navigator.clipboard.writeText(listText());$("copy").textContent="Copied"}catch(e){prompt("Copy this:",listText())}};
+$("cr").textContent=CREDIT;
+render("all");sync();
+// fit the wordmark edge to edge
+const h=document.querySelector(".mast h1");function fit(){h.style.fontSize="100px";h.style.fontSize=(100*h.parentNode.clientWidth/h.scrollWidth*.995)+"px"}
+fit();addEventListener("resize",fit);document.fonts&&document.fonts.ready.then(fit);
+</script>
+</body>
+</html>

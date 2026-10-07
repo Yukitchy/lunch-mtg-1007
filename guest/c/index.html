@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Free Time Pass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#000;--cream:#efeee6;--ink:#111;--body:#3d3d3a;--mute:#86857d;--mint:#d4fcc4;--green:#22934a;--perf:#c9c7bb;
+  --serif:Fraunces,Georgia,serif;--sans:"Instrument Sans",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:120px}
+body{background:var(--black);color:#fff;font-family:var(--sans);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;padding-bottom:110px}
+img{display:block;width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+.lab{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+
+/* sticky nav: mint pills */
+.nav{position:sticky;top:0;z-index:8;background:var(--black);padding:12px 0 10px}
+.nav .wrap{display:flex;gap:6px;align-items:stretch}
+.logo{background:var(--mint);color:var(--ink);border-radius:12px;padding:0 14px;display:flex;align-items:center;font-family:var(--serif);font-size:20px;white-space:nowrap}
+.tabs{flex:1;min-width:0;background:var(--mint);border-radius:12px;display:flex;overflow-x:auto;scrollbar-width:none;padding:4px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{color:var(--ink);font-size:15px;font-weight:500;padding:10px 12px;border-radius:9px;white-space:nowrap}
+.tabs a.on{background:var(--ink);color:var(--mint)}
+
+/* intro */
+.intro{padding:40px 0 8px}
+.intro h1{font-family:var(--serif);font-weight:300;font-size:clamp(40px,10.5vw,92px);line-height:1;letter-spacing:-.02em;max-width:11em}
+.intro p{margin-top:16px;font-size:18px;line-height:1.4;color:#cfcfc8;max-width:30em}
+
+/* section */
+.sec{padding-top:48px}
+.sec>header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #333;padding-bottom:12px;margin-bottom:18px}
+.sec h2{font-family:var(--serif);font-weight:300;font-size:40px;line-height:1}
+.sec header span{color:#a9a9a0;text-align:right}
+.grid{display:grid;gap:16px}
+@media (min-width:820px){.grid{grid-template-columns:1fr 1fr;gap:20px}.wrap{padding:0 32px}}
+
+/* ticket */
+.tk{background:var(--cream);color:var(--ink);border-radius:16px;position:relative;display:flex;flex-direction:column}
+.tk .main{padding:16px 16px 18px}
+.tk .route{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.tk .route .lab{color:var(--mute)}
+.tk .area{font-size:15px;font-weight:500;margin-top:3px}
+.tk .dep{font-family:var(--serif);font-weight:300;font-size:44px;line-height:.9;letter-spacing:-.02em;text-align:right;white-space:nowrap}
+.tk h3{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1;letter-spacing:-.01em;margin:14px 0 12px}
+.tk img{aspect-ratio:16/9;object-fit:cover;border-radius:10px;background:#d8d6cc}
+.tk .d{margin-top:12px;font-size:16px;line-height:1.45;color:var(--body)}
+/* perforation with side notches */
+.perf{position:relative;height:0;border-top:2px dashed var(--perf);margin:0 18px}
+.perf::before,.perf::after{content:"";position:absolute;top:-12px;width:22px;height:22px;border-radius:50%;background:var(--black)}
+.perf::before{left:-30px}.perf::after{right:-30px}
+.stub{padding:16px 16px 16px;display:grid;grid-template-columns:1fr 1fr;gap:12px 14px;margin-top:auto}
+.stub div{font-size:15px;line-height:1.3}
+.stub .lab{display:block;color:var(--mute);margin-bottom:3px}
+.stub .w{grid-column:1/-1}
+.pick{grid-column:1/-1;background:var(--green);color:#fff;border-radius:999px;padding:13px;font-weight:600;font-size:16px;min-height:48px}
+.pick[aria-pressed=true]{background:var(--ink);color:var(--mint)}
+
+/* bottom pass bar */
+.bar{position:fixed;left:16px;right:16px;bottom:16px;z-index:9;max-width:560px;margin:0 auto;background:var(--mint);color:var(--ink);border-radius:14px;
+  display:flex;justify-content:space-between;align-items:center;padding:8px 8px 8px 16px;transform:translateY(160%);transition:transform .25s}
+.bar.on{transform:none}
+.bar b{font-weight:600}
+.bar button{background:var(--ink);color:var(--mint);border-radius:10px;padding:12px 16px;font-weight:600}
+dialog{border:0;padding:0;margin:auto;width:calc(100% - 32px);max-width:520px;background:var(--cream);color:var(--ink);border-radius:16px}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+dialog .in{padding:20px 18px}
+dialog h4{font-family:var(--serif);font-weight:300;font-size:34px}
+dialog ol{list-style:none;margin:12px 0 16px}
+dialog li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:2px dashed var(--perf);font-size:16px}
+dialog li span{color:var(--mute);white-space:nowrap}
+dialog .row{display:flex;gap:10px}
+dialog .row button{flex:1;border-radius:999px;padding:13px;font-weight:600;background:#dddbd0}
+dialog .row .pri{background:var(--green);color:#fff}
+footer{margin-top:56px;border-top:1px solid #333;padding-top:14px;font-size:13px;line-height:1.5;color:#8d8d86}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap"><span class="logo">Free Time</span><div class="tabs" id="tabs"></div></div></nav>
+<main class="wrap">
+  <section class="intro"><h1>Pick by the time you have.</h1><p>Morning, afternoon, night or a full day. Pick the ones you like and send me your pass. — Yuuki</p></section>
+  <div id="secs"></div>
+  <footer id="cr"></footer>
+</main>
+<div class="bar" id="bar"><span><b id="n"></b> on your pass</span><button id="go">See my pass</button></div>
+<dialog id="dlg"><div class="in"><h4>My pass</h4><ol id="ol"></ol><div class="row"><button id="x">Close</button><button class="pri" id="cp">Copy and send</button></div></div></dialog>
+
+<script src="../../data/exp.js"></script>
+<script src="../data-en.js"></script>
+<script>
+const X=window.EXP,EN=window.EN,$=id=>document.getElementById(id),picked=new Set();
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const SECS=[["morning","Morning","Start 7:30 to 10:00"],["afternoon","Afternoon","Start after lunch"],["evening","Evening","Start 16:00 or later"],["fullday","Full day","10:00 to the evening"],["kanazawa","Kanazawa","2.5h from Tokyo by Shinkansen"]];
+const first=s=>s.split(/ or | \/ /)[0];
+$("tabs").innerHTML=SECS.map(([k,l])=>`<a href="#${k}" data-k="${k}">${l}</a>`).join("");
+$("secs").innerHTML=SECS.map(([k,l,h])=>`<section class="sec" id="${k}"><header><h2>${l}</h2><span>${h}</span></header><div class="grid">${
+  ORDER.filter(id=>EN[id].when==k).map(id=>{const e=EN[id],x=X[id],tour=x.kind=="tour",t=first(e.start),num=/\d/.test(t);
+    return `<article class="tk"><div class="main">
+      <div class="route"><div><span class="lab">From</span><div class="area">${esc(e.area)}</div></div><div class="dep">${num?esc(t):"Any"}</div></div>
+      <h3>${esc(e.t)}</h3><img src="../../img/${x.img}" alt=""><p class="d">${esc(e.d)}</p></div>
+      <div class="perf"></div>
+      <div class="stub">
+        <div><span class="lab">Time</span>${esc(e.dur)}</div>
+        <div><span class="lab">${tour?"Host":"Route"}</span>${tour?esc(e.host)+(x.rating?` ★ ${x.rating}`:""):"By Yuuki"}</div>
+        ${e.cap?`<div><span class="lab">Group</span>${esc(e.cap)}</div><div><span class="lab">Age</span>${e.age?esc(e.age):"Any"}</div>`:""}
+        <div class="w"><span class="lab">Meet</span>${esc(e.meet)}${num&&e.start!=t?` · also ${esc(e.start.replace(t,"").replace(/^ (or|\/) /,""))}`:""}</div>
+        <button class="pick" data-k="${id}" aria-pressed="false">Pick this</button>
+      </div></article>`}).join("")}</div></section>`).join("");
+function sync(){document.querySelectorAll(".pick").forEach(b=>{const on=picked.has(b.dataset.k);b.setAttribute("aria-pressed",on);b.textContent=on?"On my pass ✓":"Pick this"});
+  $("bar").classList.toggle("on",picked.size>0);$("n").textContent=picked.size}
+$("secs").onclick=ev=>{const b=ev.target.closest(".pick");if(!b)return;const k=b.dataset.k;picked.has(k)?picked.delete(k):picked.add(k);sync()};
+const listText=()=>"My picks:\n"+[...picked].map(k=>`- ${EN[k].t} (${EN[k].area}, ${EN[k].dur})`).join("\n");
+$("go").onclick=()=>{$("ol").innerHTML=[...picked].map(k=>`<li>${esc(EN[k].t)}<span>${esc(EN[k].dur)}</span></li>`).join("");$("cp").textContent="Copy and send";$("dlg").showModal()};
+$("x").onclick=()=>$("dlg").close();
+$("cp").onclick=async()=>{try{await navigator.clipboard.writeText(listText());$("cp").textContent="Copied"}catch(e){prompt("Copy this:",listText())}};
+// highlight the tab of the section on screen
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)document.querySelectorAll(".tabs a").forEach(a=>a.classList.toggle("on",a.dataset.k==e.target.id))}),{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll(".sec").forEach(s=>io.observe(s));
+$("cr").textContent=CREDIT;sync();
+</script>
+</body>
+</html>
