@@ -11,7 +11,7 @@
 :root{--ink:#1a1a1a;--sub:#5f5f5f;--mute:#8a8a8a;--line:#e6e6e6;--bg:#fff;--soft:#f7f6f4;--red:#C92A3A;--red-soft:#fbeeef;--tab-h:64px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-padding-top:16px}
-body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",system-ui,sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:anywhere;padding-bottom:calc(var(--tab-h) + env(safe-area-inset-bottom) + 24px)}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",system-ui,sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;line-break:strict;word-break:normal;overflow-wrap:break-word;padding-bottom:calc(var(--tab-h) + env(safe-area-inset-bottom) + 24px)}
 .wrap{max-width:720px;margin:0 auto;padding:0 20px}
 header{padding:44px 0 28px;border-bottom:1px solid var(--line)}
 .eyebrow{font-size:12px;letter-spacing:.1em;color:var(--red);font-weight:700}
@@ -60,7 +60,7 @@ p+p{margin-top:10px}
 .prompt pre{white-space:pre-wrap;font-family:inherit;font-size:14px;line-height:1.8;background:var(--soft);border-radius:10px;padding:14px;color:#333}
 .prompt .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px}
 .prompt .row small{color:var(--mute);font-size:12px}
-.copy{appearance:none;border:1px solid var(--ink);background:#fff;color:var(--ink);font:inherit;font-size:13px;font-weight:700;padding:7px 14px;border-radius:8px;cursor:pointer}
+.copy{appearance:none;border:1px solid var(--ink);background:#fff;color:var(--ink);font:inherit;font-size:13px;font-weight:700;padding:7px 14px;border-radius:8px;cursor:pointer;white-space:nowrap;flex-shrink:0}
 .copy.done{background:var(--ink);color:#fff}
 .proto{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:16px}
 .proto .img{aspect-ratio:16/9;background:var(--soft);display:grid;place-items:center;color:var(--mute);font-size:13px;overflow:hidden}
@@ -92,7 +92,7 @@ nav.tabs a{display:flex;flex-direction:column;align-items:center;justify-content
 nav.tabs a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 nav.tabs a[aria-current]{color:var(--red);font-weight:700}
 @media (max-width:600px){h1{font-size:24px}.cards,.facts{grid-template-columns:1fr}.band{padding:24px 18px}.book{grid-template-columns:100px 1fr;gap:14px}}
-@media (min-width:900px){nav.tabs ul{border-left:1px solid var(--line);border-right:1px solid var(--line)}}
+@media (min-width:900px){nav.tabs{background:transparent;border-top:0;backdrop-filter:none}nav.tabs ul{background:rgba(255,255,255,.97);border:1px solid var(--line);border-bottom:0;border-radius:14px 14px 0 0;box-shadow:0 -2px 12px rgba(0,0,0,.05)}}
 </style>
 </head>
 <body>
@@ -107,7 +107,7 @@ nav.tabs a[aria-current]{color:var(--red);font-weight:700}
 <div class="panel on" id="minutes">
 <section>
   <div class="band">
-    <p class="num" style="color:#ff8a94">01 ／ MIOさんの言葉から</p>
+    <p class="num" style="color:#ff8a94">01 ／ Mioさんの言葉から</p>
     <h2>「今、パッとできそうなことは3つ」</h2>
     <p class="sub">食後にMioさんが挙げた3つを、そのまま柱にします。</p>
     <ol>
@@ -152,13 +152,13 @@ nav.tabs a[aria-current]{color:var(--red);font-weight:700}
   <p class="num">04</p>
   <h2>出た言葉</h2>
   <ul class="quotes">
-    <li><q>ユウキさんだからリピートしたい、というお客さん。そこはAIが代われない</q><div class="who">MIOさん</div></li>
-    <li><q>自分が当たり前にやっていることを他の人にやらせるのは、意外と難しい</q><div class="who">MIOさん</div></li>
-    <li><q>これが会社じゃん</q><div class="who">MIOさん（ユウキの仕組みを見て）</div></li>
-    <li><q>私、単純なんで。さっきのキャラクター、あれがいい。あれが欲しい</q><div class="who">MIOさん</div></li>
-    <li><q>日本文化体験で、みんなが思っていることをやる必要はない</q><div class="who">MIOさん</div></li>
+    <li><q>ユウキさんだからリピートしたい、というお客さん。そこはAIが代われない</q><div class="who">Mioさん</div></li>
+    <li><q>自分が当たり前にやっていることを他の人にやらせるのは、意外と難しい</q><div class="who">Mioさん</div></li>
+    <li><q>これが会社じゃん</q><div class="who">Mioさん（ユウキの仕組みを見て）</div></li>
+    <li><q>私、単純なんで。さっきのキャラクター、あれがいい。あれが欲しい</q><div class="who">Mioさん</div></li>
+    <li><q>日本文化体験で、みんなが思っていることをやる必要はない</q><div class="who">Mioさん</div></li>
     <li><q>できるだけ上流から仕事をもらえるようにするほうが、ガイドは得をする</q><div class="who">ユウキ</div></li>
-    <li><q>たくさん話したから、どういうものをまとめてくれるか楽しみ</q><div class="who">MIOさん</div></li>
+    <li><q>たくさん話したから、どういうものをまとめてくれるか楽しみ</q><div class="who">Mioさん</div></li>
   </ul>
 </section>
 </div>
@@ -207,7 +207,7 @@ nav.tabs a[aria-current]{color:var(--red);font-weight:700}
     <h3>週1本の記事を、AIに下書きさせる</h3>
     <pre id="p1">あなたは私の会社の広報担当です。私の会社は、海外の企業や学校が日本で行う視察・研修・教育旅行を手配しています。
 これから渡す資料（工程表、写真の説明、やり取りのメモ）を読んで、同じような旅を考えている人が読みたくなる記事を1本書いてください。
-条件:
+条件
 ・社名、人名、金額は書かない
 ・見出し1つと本文800字
 ・最後は「こういう旅を手配できます」で締める
@@ -234,7 +234,7 @@ nav.tabs a[aria-current]{color:var(--red);font-weight:700}
     <span class="use">来年の提案</span>
     <h3>「面白い1本」の候補を出させる</h3>
     <pre id="p4">海外の企業グループ向けに来年の日本滞在を提案します。ゴルフや桜といった定番の企画に続く最後の1本として、「日本でしかできない体験」を3案出してください。
-条件:
+条件
 ・人数は○○名以下
 ・半日で終わる
 ・東京から1時間以内
