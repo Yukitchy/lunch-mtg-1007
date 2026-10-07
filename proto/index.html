@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>空き時間の過ごし方を選ぶ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C92A3A'/%3E%3Ctext x='32' y='45' font-size='38' font-weight='700' text-anchor='middle' fill='%23fff' font-family='sans-serif'%3E選%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a1a;--acc:#C92A3A;--sub:#555;--mute:#777;--line:#e4e4e4}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font:400 15px/1.7 "Noto Sans JP",sans-serif;word-break:keep-all;overflow-wrap:anywhere;padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+h1,h2,h3{text-wrap:balance;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header{padding:32px 0 8px}
+h1{font-size:26px;line-height:1.4;font-weight:700}
+.sub{text-wrap:balance;margin:8px 0 0;font-size:14px;color:var(--mute)}
+.intro{margin:16px 0 0;font-size:15px}
+.slot{padding-top:36px}
+.slot h2{font-size:20px;font-weight:700;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;border-bottom:1px solid var(--ink);padding-bottom:8px}
+.slot h2 small{font-size:13px;font-weight:500;color:var(--mute)}
+.grid{display:grid;gap:16px;margin-top:16px;grid-template-columns:1fr}
+.card{display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;background:#fff;border:2px solid var(--line);border-radius:6px;padding:0;overflow:hidden;cursor:pointer;position:relative;transition:border-color 120ms;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.card:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.card[aria-checked=true]{border-color:var(--acc)}
+.ph{aspect-ratio:16/10;display:flex;align-items:flex-end;padding:14px;color:#fff;font-size:28px;font-weight:700;line-height:1.3;overflow:hidden}
+.ph.im{padding:0}.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.chip{position:absolute;top:10px;right:10px;background:var(--acc);color:#fff;font-size:12px;font-weight:700;padding:1px 10px;border-radius:99px;display:none}
+.card[aria-checked=true] .chip{display:block}
+.body{display:flex;flex-direction:column;flex:1;padding:14px 14px 16px}
+.lab{font-size:12px;font-weight:700;color:var(--acc)}
+.ttl{font-size:17px;font-weight:700;line-height:1.5;margin-top:2px;text-wrap:balance}
+.dsc{font-size:14px;color:var(--sub);margin:6px 0 12px}
+.meta{font-size:13px;color:var(--mute);margin-top:auto;padding-bottom:12px;line-height:1.6}
+.tog{display:block;text-align:center;font-size:14px;font-weight:700;border:1px solid var(--ink);border-radius:4px;padding:7px 0;transition:background 120ms,color 120ms,border-color 120ms}
+.card[aria-checked=true] .tog{background:var(--acc);border-color:var(--acc);color:#fff}
+.card[aria-checked=true] .tog::before{content:"選択中　"}
+.card[aria-checked=true] .tog span{display:none}
+footer{margin-top:40px;padding:16px 0 8px;border-top:1px solid var(--line);font-size:12px;color:var(--mute)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);box-shadow:0 1px 2px rgba(0,0,0,.06);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.bar .in{max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cnt{font-size:15px;font-weight:700;white-space:nowrap}
+.btn{font:700 15px/1.4 "Noto Sans JP",sans-serif;background:var(--acc);color:#fff;border:0;border-radius:4px;padding:11px 18px;cursor:pointer;transition:opacity 120ms}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.ov{position:fixed;inset:0;background:rgba(26,26,26,.5);display:none;align-items:flex-end;justify-content:center;z-index:10}
+.ov.on{display:flex}
+.pn{background:#fff;width:100%;max-width:560px;border-radius:10px 10px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom))}
+@media(min-width:760px){.ov{align-items:center}.pn{border-radius:10px}}
+.pn h3{font-size:18px}
+.pn textarea{width:100%;height:150px;margin:12px 0;border:1px solid var(--line);border-radius:4px;padding:10px;font:400 14px/1.8 "Noto Sans JP",sans-serif;color:var(--ink);resize:none}
+.row{display:flex;gap:8px;justify-content:flex-end}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr)}h1{font-size:32px}header{padding-top:48px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>空き時間の過ごし方を選ぶ</h1>
+<p class="sub">3日間の視察プログラム ／ 自由時間のオプション（サンプル）</p>
+<p class="intro">各枠からひとつ選んでください。選んだ内容は最後にまとめて送れます。</p>
+</header>
+<main id="main"></main>
+<footer>これは見本です。実際の案件では、日程・人数・移動時間に合わせて選択肢を組み直します。</footer>
+</div>
+
+<div class="bar"><div class="in"><span class="cnt" id="cnt">選択 0/3</span><button class="btn" id="sum" disabled>選んだ内容をまとめる</button></div></div>
+
+<div class="ov" id="ov"><div class="pn" role="dialog" aria-label="選んだ内容">
+<h3>選んだ内容</h3>
+<textarea id="ta" readonly></textarea>
+<div class="row"><button class="btn ghost" id="close">閉じる</button><button class="btn" id="copy">コピー</button></div>
+</div></div>
+
+<script>
+const S=[
+{n:"Day 1 午後",t:"14:00–18:00",o:[
+["秋葉原","アニメとポップカルチャーの街歩き","フィギュア・ゲームセンター・メイドカフェを案内付きで回る。英語ガイド。","3時間","〜30名（ガイド複数で分割）","移動15分","../img/t10.jpg"],
+["中目黒","レザークラフト体験","革の小物を自分で縫って持ち帰る。職人の工房で少人数。","1.5時間","〜5名","移動35分","#8a5a2b"],
+["横浜","製麺所でラーメンを作る","麺の種類を選んで打ち、その麺でラーメンを作って食べる。","3時間","〜8名","移動45分","#b23a3a"]]},
+{n:"Day 2 夕方",t:"17:00–20:00",o:[
+["秋葉原","ゲームセンターとガチャの夜","夜の電気街。クレーンゲーム・レトロゲーム・ガチャ。","2時間","〜20名","移動15分","../img/t04.jpg"],
+["渋谷・原宿","ストリートカルチャー散歩","古着・スニーカー・スクランブル交差点。若手社員向け。","2.5時間","〜15名","移動25分","#2f6b8f"],
+["銀座","文房具と老舗めぐり","伊東屋・鳩居堂など、手土産にもなる買い物。落ち着いた層向け。","2時間","〜10名","移動10分","#4a6b3a"]]},
+{n:"Day 3 午前",t:"09:00–12:00",o:[
+["秋葉原","家族で楽しむアニメ街歩き","同行家族向け。フィギュア探し・プリクラ・お土産。","2.5時間","〜12名","移動15分","../img/t05.jpg"],
+["池袋・中野","サブカルの聖地めぐり","中野ブロードウェイと池袋のアニメショップ。深いファン向け。","3時間","〜10名","移動30分","#6b4a8f"],
+["自由行動","参加しない","この枠はホテルで休む・各自で過ごす。","—","—","—","#777"]]}];
+const pick=[null,null,null],$=id=>document.getElementById(id);
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+$("main").innerHTML=S.map((s,i)=>`<section class="slot"><h2>${s.n}<small>（${s.t}）</small></h2><div class="grid" role="radiogroup" aria-label="${s.n}">`+
+s.o.map((o,j)=>`<button type="button" class="card" role="radio" aria-checked="false" data-i="${i}" data-j="${j}"><div class="ph${o[6][0]=="#"?"":" im"}" ${o[6][0]=="#"?`style="background:${o[6]}"`:""}>${o[6][0]=="#"?esc(o[0]):`<img src="${o[6]}" alt="">`}</div><span class="chip">選択中</span><div class="body"><div class="lab">${esc(o[0])}</div><div class="ttl">${esc(o[1])}</div><div class="dsc">${esc(o[2])}</div><div class="meta">${o[3]} ・ ${o[4]} ・ ${o[5]=="—"?"—":"日本橋から"+o[5]}</div><span class="tog">${"<span>選ぶ</span>"}</span></div></button>`).join("")+`</div></section>`).join("");
+function render(){document.querySelectorAll(".card").forEach(c=>c.setAttribute("aria-checked",pick[c.dataset.i]==+c.dataset.j));
+const n=pick.filter(v=>v!==null).length;$("cnt").textContent=`選択 ${n}/3`;$("sum").disabled=n<1}
+$("main").addEventListener("click",e=>{const c=e.target.closest(".card");if(!c)return;const i=+c.dataset.i,j=+c.dataset.j;pick[i]=pick[i]===j?null:j;render()});
+$("sum").onclick=()=>{$("ta").value=S.map((s,i)=>`${s.n}（${s.t}）\n`+(pick[i]===null?"未選択":S[i].o[pick[i]][0]+"　"+S[i].o[pick[i]][1])).join("\n\n");$("ov").classList.add("on")};
+$("close").onclick=()=>$("ov").classList.remove("on");
+$("ov").onclick=e=>{if(e.target.id=="ov")$("ov").classList.remove("on")};
+$("copy").onclick=async()=>{const t=$("ta");try{await navigator.clipboard.writeText(t.value)}catch(_){t.select();document.execCommand("copy")}$("copy").textContent="コピーしました";setTimeout(()=>$("copy").textContent="コピー",1500)};
+render();
+</script>
+</body>
+</html>

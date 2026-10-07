@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>今できる3つのこと</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23C92A3A'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>3</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a1a;--sub:#5f5f5f;--mute:#8a8a8a;--line:#e6e6e6;--bg:#fff;--soft:#f7f6f4;--red:#C92A3A;--red-soft:#fbeeef;--tab-h:64px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:16px}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",system-ui,sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:anywhere;padding-bottom:calc(var(--tab-h) + env(safe-area-inset-bottom) + 24px)}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+header{padding:44px 0 28px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.1em;color:var(--red);font-weight:700}
+h1{font-size:28px;line-height:1.4;margin:10px 0 12px;font-weight:700;text-wrap:balance}
+.lead{color:var(--sub);font-size:15px;max-width:36em}
+.panel{display:none}
+.panel.on{display:block}
+section{padding:36px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.num{font-size:12px;color:var(--red);font-weight:700;letter-spacing:.1em}
+h2{font-size:21px;line-height:1.5;margin:4px 0 18px;font-weight:700;text-wrap:balance}
+h3{font-size:16px;font-weight:700;line-height:1.6}
+p+p{margin-top:10px}
+.band{background:var(--ink);color:#fff;border-radius:16px;padding:28px 22px;margin-top:4px}
+.band h2{color:#fff;margin-bottom:6px}
+.band .sub{color:#bdbdbd;font-size:14px;margin-bottom:22px}
+.band ol{list-style:none;display:grid;gap:22px}
+.band li{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start}
+.band .n{font-size:34px;font-weight:700;line-height:1;color:#ff8a94;letter-spacing:-.02em;margin-top:2px}
+.band b{display:block;font-size:17px;line-height:1.5;margin-bottom:6px}
+.band p{font-size:14px;color:#d6d6d6;line-height:1.75}
+.band .first{margin-top:10px;font-size:13px;color:#fff;background:rgba(255,255,255,.08);border-radius:8px;padding:8px 12px}
+.band .first span{color:#ff8a94;font-weight:700;margin-right:6px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fact{border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.fact .v{font-size:19px;font-weight:700;line-height:1.3}
+.fact .k{font-size:12px;color:var(--sub);margin-top:2px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:var(--soft);border-radius:12px;padding:18px}
+.card .tag{display:inline-block;font-size:11px;color:var(--red);font-weight:700;letter-spacing:.06em;margin-bottom:6px}
+.card h3{font-size:15px;margin-bottom:6px}
+.card p{font-size:13.5px;color:var(--sub);line-height:1.75}
+.quotes{list-style:none;border-top:2px solid var(--ink)}
+.quotes li{padding:16px 0;border-bottom:1px solid var(--line)}
+.quotes q{quotes:"「" "」";font-size:16px;font-weight:700;line-height:1.6}
+.quotes .who{font-size:12px;color:var(--red);font-weight:700;margin-top:4px;letter-spacing:.06em}
+.todo h3{display:flex;align-items:center;gap:10px;margin:22px 0 10px;font-size:14px;color:var(--sub);letter-spacing:.06em}
+.todo h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.todo ul{list-style:none}
+.todo li{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px;align-items:start}
+.todo li::before{content:"";width:18px;height:18px;border:1.5px solid #bbb;border-radius:5px;margin-top:6px}
+.todo li small{display:block;color:var(--mute);font-size:12.5px;margin-top:2px}
+.prompt{border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+.prompt .use{font-size:12px;color:var(--red);font-weight:700;letter-spacing:.06em}
+.prompt h3{margin:4px 0 10px}
+.prompt pre{white-space:pre-wrap;font-family:inherit;font-size:14px;line-height:1.8;background:var(--soft);border-radius:10px;padding:14px;color:#333}
+.prompt .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px}
+.prompt .row small{color:var(--mute);font-size:12px}
+.copy{appearance:none;border:1px solid var(--ink);background:#fff;color:var(--ink);font:inherit;font-size:13px;font-weight:700;padding:7px 14px;border-radius:8px;cursor:pointer}
+.copy.done{background:var(--ink);color:#fff}
+.proto{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:16px}
+.proto .img{aspect-ratio:16/9;background:var(--soft);display:grid;place-items:center;color:var(--mute);font-size:13px;overflow:hidden}
+.proto .img img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.proto .body{padding:18px}
+.proto h3{margin-bottom:6px}
+.proto p{font-size:14px;color:var(--sub)}
+.btn{display:inline-block;margin-top:14px;background:var(--red);color:#fff;text-decoration:none;padding:11px 18px;border-radius:9px;font-size:14px;font-weight:700}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.go{color:var(--red);font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;font-size:14px}
+.go::after{content:" →"}
+.book{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:start}
+.cover{aspect-ratio:105/148;background:#f5efdf;border:1px solid #e6ddca;border-radius:3px;padding:8px;box-shadow:2px 3px 10px rgba(90,70,40,.15)}
+.cover .in{height:100%;border:1px solid #b9a98e;outline:1px solid #b9a98e;outline-offset:-3px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:10px 6px 0;font-family:"Hiragino Mincho ProN",serif}
+.cover .lab{font-size:7px;letter-spacing:.4em;color:#8a7a5f;margin-bottom:8px}
+.cover .orn{width:18px;height:18px;border-radius:50% 50% 50% 3px;background:var(--red);opacity:.85;margin-bottom:8px}
+.cover .t{font-size:11px;font-weight:600;line-height:1.5;letter-spacing:.06em}
+.cover .a{font-size:7.5px;margin-top:auto;padding-bottom:6px;letter-spacing:.1em}
+.cover .bd{width:calc(100% + 16px);margin:0 -8px;background:var(--red);color:#fff;font-size:7px;display:flex;justify-content:space-between;padding:3px 8px}
+.toc{list-style:none;margin-top:22px;border-top:2px solid var(--ink)}
+.toc li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.toc a{color:var(--ink);text-decoration:none}
+.toc .t{color:var(--mute);font-variant-numeric:tabular-nums;font-size:13px;flex-shrink:0}
+.note{background:var(--soft);border-radius:12px;padding:16px 18px;font-size:13.5px;color:var(--sub);line-height:1.8}
+footer{padding:28px 0 0;color:var(--mute);font-size:12.5px}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:saturate(180%) blur(12px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom);z-index:40}
+nav.tabs ul{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);max-width:720px;margin:0 auto;height:var(--tab-h)}
+nav.tabs a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;height:100%;color:var(--mute);text-decoration:none;font-size:11px;font-weight:500;letter-spacing:.02em}
+nav.tabs a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+nav.tabs a[aria-current]{color:var(--red);font-weight:700}
+@media (max-width:600px){h1{font-size:24px}.cards,.facts{grid-template-columns:1fr}.band{padding:24px 18px}.book{grid-template-columns:100px 1fr;gap:14px}}
+@media (min-width:900px){nav.tabs ul{border-left:1px solid var(--line);border-right:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="eyebrow">2026.10.07 ランチミーティング ／ 日本橋</p>
+  <h1>今できる3つのこと</h1>
+  <p class="lead">Mioさんと話した90分を、決まったこと・やること・すぐ試せるものの順に整理しました。下のメニューで切り替えられます。</p>
+</header>
+
+<!-- ===== 1 議事録 ===== -->
+<div class="panel on" id="minutes">
+<section>
+  <div class="band">
+    <p class="num" style="color:#ff8a94">01 ／ MIOさんの言葉から</p>
+    <h2>「今、パッとできそうなことは3つ」</h2>
+    <p class="sub">食後にMioさんが挙げた3つを、そのまま柱にします。</p>
+    <ol>
+      <li><div class="n">1</div><div><b>来ている案件の空き時間に、選択式で体験を入れる</b><p>企業視察や教育旅行の行程には、必ず自由時間の枠がある。そこにアニメだけでなく、ユウキ側のメニューを「3日なら3日ぶん」選択肢にして出し、お客さん側に選んでもらう。選ばせる形にすると決まりやすい。</p><div class="first"><span>最初の1件</span>次に日程が固まる案件で、日数・人数・出発地を送ってもらい、選択ページを作って返す。見本は「試作」タブ。</div></div></li>
+      <li><div class="n">2</div><div><b>来年の提案の「面白い1本」枠に、こちらから投げる</b><p>Mioさんは今、付き合いの長いお客さんに来年の企画を先回りで提案している。ゴルフや桜の定番に続く最後の1本が「何か面白いこと」。みんながやっているスカイツリーや浅草でなくていい、という前提で、ユニークな体験を候補として渡す。</p><div class="first"><span>最初の1件</span>ユウキが集めている体験を、人数上限・所要時間・移動時間つきの1枚にまとめて送る（中目黒のレザークラフト、横浜の製麺所でラーメン、金沢、秋葉原ほか）。</div></div></li>
+      <li><div class="n">3</div><div><b>旅行業の免許を、Mioさんの会社で橋渡しする</b><p>ユウキが自分のサイトで宿や移動を含む旅程を売るには、旅行業の登録が要る。Mioさんの会社が受け皿になり、数パーセントの手数料で商品を載せる形。儲けるためというより、同じ壁の前にいるガイドが他にもたくさんいるので、その入口にもなる。</p><div class="first"><span>最初の1件</span>商品を1本に絞り（例: 秋葉原1日＋宿泊＋送迎）、どの手配が旅行業にあたるか、手数料、責任の分担をMioさんが整理。ユウキは商品ページの案を出す。</div></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <p class="num">02</p>
+  <h2>Mioさんの会社について、聞いたこと</h2>
+  <div class="facts">
+    <div class="fact"><div class="v">3年目・代表ひとり</div><div class="k">税理士などは外部。案件ごとにガイドやスタッフをアサイン</div></div>
+    <div class="fact"><div class="v">パッケージは売らない</div><div class="k">すべてカスタムメイド。旅行業の登録はある</div></div>
+    <div class="fact"><div class="v">企業視察・教育旅行・医療</div><div class="k">工場見学、企業訪問、大学や大学院の視察、医師の視察。海外の医師を数百人規模で受け入れる案件を提案中</div></div>
+    <div class="fact"><div class="v">流入はJNTOの掲載</div><div class="k">広告は一度も出していない。SNSも未着手</div></div>
+    <div class="fact"><div class="v">価格競争のコンペには乗らない</div><div class="k">無料相談のうえ、手配料とアレンジ料だけをもらう</div></div>
+    <div class="fact"><div class="v">サイトは来週リニューアル</div><div class="k">今回は自分で作る。トップページ＋αに絞る。実績はまだ載せていない</div></div>
+    <div class="fact"><div class="v">春と12月が繁忙</div><div class="k">夏は減少。1〜5月は情勢の影響で企業案件のキャンセルが複数</div></div>
+    <div class="fact"><div class="v">続く客の共通点は「会話ができる」</div><div class="k">国や業界はばらばら。最初からビジョンがある人が残る</div></div>
+  </div>
+</section>
+
+<section>
+  <p class="num">03</p>
+  <h2>話した論点</h2>
+  <div class="cards">
+    <div class="card"><span class="tag">ガイド探し</span><h3>英語や資格より、会話とホスピタリティ</h3><p>歴史の講釈で目が死ぬより、今の流行りを話せて礼儀のある学生のほうが喜ばれる。よしさんは20〜30人を研修してチームで回している。</p></div>
+    <div class="card"><span class="tag">事前の文脈</span><h3>急に入るガイドにも、経緯が一読で分かる形を</h3><p>1か月前からのやり取りを読んで、行程の叩き台と予習を用意する。会話履歴から自動で作れる。</p></div>
+    <div class="card"><span class="tag">実績</span><h3>これまで掲載の許可を取っていなかった</h3><p>次の案件から「掲載OKなら5%オフ」などで許可を取る。サイトに来た人が「これができるんだ」と分かる。</p></div>
+    <div class="card"><span class="tag">記事</span><h3>案件フォルダを読ませて、週1本</h3><p>工程や写真が入ったフォルダをAIに読ませ、社名や数字を伏せて記事化。自動公開はせず、毎回人が確認して出す。</p></div>
+    <div class="card"><span class="tag">AI社員</span><h3>「あれが欲しい」</h3><p>役割ごとにキャラクターを置いた社員名簿を見て、Mioさんが即答。見えると使いたくなる。</p></div>
+    <div class="card"><span class="tag">集客</span><h3>広告ゼロからの一歩と、AIに出てくる工夫</h3><p>小さく広告を出してABテストで見出しと画像を比べる。検索の前にAIの答えに載る最適化も。</p></div>
+    <div class="card"><span class="tag">手数料</span><h3>OTAの20〜25%と、自社サイトの1〜2%</h3><p>ユウキの予約サイトはカレンダー連動で、他の販路の空きも自動で止める。拡充版を将来の形にしたい。</p></div>
+    <div class="card"><span class="tag">つながり</span><h3>旅行会社より、ガイドとつながりたい</h3><p>ひとりで続けると視野が狭くなる。10月11日の作業会は飛び込みでも歓迎。</p></div>
+  </div>
+</section>
+
+<section>
+  <p class="num">04</p>
+  <h2>出た言葉</h2>
+  <ul class="quotes">
+    <li><q>ユウキさんだからリピートしたい、というお客さん。そこはAIが代われない</q><div class="who">MIOさん</div></li>
+    <li><q>自分が当たり前にやっていることを他の人にやらせるのは、意外と難しい</q><div class="who">MIOさん</div></li>
+    <li><q>これが会社じゃん</q><div class="who">MIOさん（ユウキの仕組みを見て）</div></li>
+    <li><q>私、単純なんで。さっきのキャラクター、あれがいい。あれが欲しい</q><div class="who">MIOさん</div></li>
+    <li><q>日本文化体験で、みんなが思っていることをやる必要はない</q><div class="who">MIOさん</div></li>
+    <li><q>できるだけ上流から仕事をもらえるようにするほうが、ガイドは得をする</q><div class="who">ユウキ</div></li>
+    <li><q>たくさん話したから、どういうものをまとめてくれるか楽しみ</q><div class="who">MIOさん</div></li>
+  </ul>
+</section>
+</div>
+
+<!-- ===== 2 やること ===== -->
+<div class="panel" id="todo">
+<section class="todo">
+  <p class="num">TODO</p>
+  <h2>やること</h2>
+  <p class="lead">3つの柱を、最初の1件まで進めるための分担です。</p>
+  <h3>Mioさん</h3>
+  <ul>
+    <li><div>次に日程が固まる案件の「日数・人数・出発地・自由時間の枠」を送る<small>柱1の最初の1件。これで選択ページを作ります</small></div></li>
+    <li><div>来年の提案に入れたい「面白い1本」の条件を1行で<small>人数・予算感・時期。柱2の候補を絞るため</small></div></li>
+    <li><div>旅行業の受け皿にする場合の手数料と責任の範囲を考える<small>柱3。うちの会社が儲けたいわけではない、と話していた前提で</small></div></li>
+    <li><div>次の案件から、実績掲載の許可を取る<small>割引やロゴ掲載との交換でもよい</small></div></li>
+    <li><div>リニューアル後のサイトのURLを送る<small>記事の自動化や実績欄の置き方を見て提案します</small></div></li>
+    <li><div>10月11日（日）11:00〜15:00の作業会に、来られれば<small>住吉。飛び込みで大丈夫。ガイドが多く集まります</small></div></li>
+  </ul>
+  <h3>ユウキ</h3>
+  <ul>
+    <li><div>空き時間の選択ページを、実案件の日程で作る<small>見本は「試作」タブ。日程をもらってから数日で</small></div></li>
+    <li><div>ユニーク体験リストを1枚にまとめて送る<small>中目黒のレザークラフト、横浜の製麺所でラーメン、金沢、秋葉原、渋谷・原宿、池袋・中野。人数上限、所要時間、移動時間、写真つき</small></div></li>
+    <li><div>免許の橋渡しに載せる商品案を1本つくる<small>秋葉原1日＋宿泊＋送迎のような形で、どこが旅行業にあたるかを明記</small></div></li>
+    <li><div>Mioさん用のAI社員の入口を作って送る<small>役割を3つに絞った名簿型。まず触ってもらう</small></div></li>
+    <li><div>今日の会話の読み物を共有する<small>「会話」タブ。発言の時刻を押すと音声が流れます</small></div></li>
+  </ul>
+  <h3>ふたりで</h3>
+  <ul>
+    <li><div>最初の1件が決まったら、30分のオンラインで行程を合わせる</div></li>
+    <li><div>忘年会（SusHi Techのメンバーと）<small>10月30日はユウキが帰省中のため別日で</small></div></li>
+  </ul>
+</section>
+</div>
+
+<!-- ===== 3 プロンプト ===== -->
+<div class="panel" id="prompts">
+<section>
+  <p class="num">PROMPTS</p>
+  <h2>そのまま貼って使えるプロンプト</h2>
+  <p class="lead">今日話した「AIにやらせたいこと」を、ChatGPTにもClaudeにも貼れる形にしました。○○の部分だけ書き換えてください。</p>
+</section>
+<section>
+  <div class="prompt">
+    <span class="use">案件フォルダ → 記事を1本</span>
+    <h3>週1本の記事を、AIに下書きさせる</h3>
+    <pre id="p1">あなたは私の会社の広報担当です。私の会社は、海外の企業や学校が日本で行う視察・研修・教育旅行を手配しています。
+これから渡す資料（工程表、写真の説明、やり取りのメモ）を読んで、同じような旅を考えている人が読みたくなる記事を1本書いてください。
+条件:
+・社名、人名、金額は書かない
+・見出し1つと本文800字
+・最後は「こういう旅を手配できます」で締める
+・公開前に私が確認します。確認したい点があれば、記事の後に箇条書きで</pre>
+    <div class="row"><small>資料はフォルダの中身を貼るか、ファイルを添付</small><button class="copy" data-for="p1">コピー</button></div>
+  </div>
+  <div class="prompt">
+    <span class="use">ガイド探し</span>
+    <h3>「会話ができる人」を見抜く面接の質問</h3>
+    <pre id="p2">私は海外の企業や学校の日本視察を手配する会社の代表です。案件ごとにガイドやアテンドをお願いする人を面接します。
+英語力や資格の有無ではなく、「お客さんと会話ができるか」「ホスピタリティがあるか」「段取りを理解して動けるか」を見抜く質問を10個作ってください。
+それぞれの質問に、良い答えの例と、注意したい答えの例を1行ずつ添えてください。</pre>
+    <div class="row"><small>学生にも社会人にも使える形で出ます</small><button class="copy" data-for="p2">コピー</button></div>
+  </div>
+  <div class="prompt">
+    <span class="use">実績</span>
+    <h3>掲載の許可をお願いするメール</h3>
+    <pre id="p3">過去に日本視察を手配した企業のお客様に、実績としてサイトに掲載する許可をお願いするメールを、日本語と英語で書いてください。
+お願いする内容は、社名（またはロゴ）の掲載と、1行のコメントです。
+断りやすい一文を入れてください。丁寧に、ただし短く。件名も付けてください。</pre>
+    <div class="row"><small>割引と交換にする場合は、その条件を1行足す</small><button class="copy" data-for="p3">コピー</button></div>
+  </div>
+  <div class="prompt">
+    <span class="use">来年の提案</span>
+    <h3>「面白い1本」の候補を出させる</h3>
+    <pre id="p4">海外の企業グループ向けに来年の日本滞在を提案します。ゴルフや桜といった定番の企画に続く最後の1本として、「日本でしかできない体験」を3案出してください。
+条件:
+・人数は○○名以下
+・半日で終わる
+・東京から1時間以内
+・時期は○月
+各案に、なぜこの会社に刺さるかを1行で添えてください。</pre>
+    <div class="row"><small>ユウキからの体験リストを貼ると、そこから選んで組みます</small><button class="copy" data-for="p4">コピー</button></div>
+  </div>
+  <div class="prompt">
+    <span class="use">AI社員</span>
+    <h3>自分の「手配担当」を1人つくる</h3>
+    <pre id="p5">あなたは私の会社の「手配担当の社員」です。名前は○○。
+私の仕事は、海外の企業や学校の日本視察・研修・教育旅行の手配です。
+これから私が案件の話をしたら、毎回この3つを返してください。
+1. 工程の叩き台（日ごと・時間つき）
+2. 必要な手配のリスト（交通、宿、訪問先、ガイド、食事）
+3. 私に確認したい質問
+口調は丁寧で短く。分からないことは推測せずに質問してください。</pre>
+    <div class="row"><small>名前を付けると続けやすい、と今日話した形です</small><button class="copy" data-for="p5">コピー</button></div>
+  </div>
+</section>
+</div>
+
+<!-- ===== 4 試作 ===== -->
+<div class="panel" id="proto">
+<section>
+  <p class="num">PROTOTYPE</p>
+  <h2>すぐ触れる試作</h2>
+  <p class="lead">柱1「空き時間に選択式で体験を入れる」を、見本の案件で形にしました。スマホで開いて、各枠からひとつ選んでみてください。</p>
+</section>
+<section>
+  <div class="proto">
+    <div class="img"><img src="../img/t10.jpg" alt="秋葉原の街でゲストと" width="1600" height="900"></div>
+    <div class="body">
+      <span class="num">見本 ／ 3日間の視察プログラム</span>
+      <h3>空き時間の過ごし方を選ぶ</h3>
+      <p>3つの自由時間の枠に、それぞれ3つの選択肢。秋葉原、中目黒のレザークラフト、横浜の製麺所、渋谷・原宿、銀座、池袋・中野。選んだ内容は最後にまとめてコピーできます。</p>
+      <a class="btn" href="../proto/">見本を開く</a>
+    </div>
+  </div>
+  <div class="proto">
+    <div class="img"><img src="../img/s-course.jpg" alt="モデルコース棚の画面" width="1000" height="625"></div>
+    <div class="body">
+      <span class="num">実物 ／ ユウキが個人のお客さんに使っているもの</span>
+      <h3>モデルコース棚</h3>
+      <p>これまでにお客さんへ出した選択ページの全コース。12ページ・28コース。ランチで見せた「A・B・Cから選ぶ」型の元になっています。</p>
+      <a class="btn ghost" href="https://yukitchy.github.io/course-picker/" target="_blank" rel="noopener">棚を見る</a>
+    </div>
+  </div>
+  <div class="note"><b>次に作るもの。</b>実案件の日程での選択ページ、ユニーク体験リスト（1枚）、Mioさん用のAI社員の入口。どれも「やること」タブの順に進めます。</div>
+</section>
+</div>
+
+<!-- ===== 5 会話 ===== -->
+<div class="panel" id="talk">
+<section>
+  <p class="num">RECORD</p>
+  <h2>会話の記録</h2>
+  <p class="lead">ランチの会話を、発言ごとに時刻つきで読める形にしました。時刻を押すとその場所から音声が流れます。</p>
+</section>
+<section>
+  <div class="book">
+    <div class="cover"><div class="in"><div class="lab">よみもの文庫</div><div class="orn"></div><div class="t">今、パッと<br>できそうな<br>ことは3つ</div><div class="a">ユウキ × Mioさん</div><div class="bd"><span>よ-6-1</span><span>2026.10.7</span></div></div></div>
+    <div>
+      <h3>今、パッとできそうなことは3つ</h3>
+      <p style="font-size:14px;color:var(--sub);margin-top:4px">全30章・80分・音源つき。章の時刻を押すと、その場面から読めて聞けます。</p>
+      <a class="btn" href="https://yomimono.pages.dev/b/d7479e5f3c/" target="_blank" rel="noopener">読み物を開く</a>
+    </div>
+  </div>
+  <ul class="toc"><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=65" target="_blank" rel="noopener">1. ご無沙汰の再会と、ランチ録音の種明かし</a><span class="t">1:05</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=195" target="_blank" rel="noopener">2. 半年前に始めたAIと、作業会のきっかけ</a><span class="t">3:15</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=283" target="_blank" rel="noopener">3. 写真を選んで投稿まで、AI社員の仕組み</a><span class="t">4:43</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=430" target="_blank" rel="noopener">4. トリガーを決めれば勝手に動く、非エンジニアのバイブコーディング</a><span class="t">7:10</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=527" target="_blank" rel="noopener">5. 民泊オーナーの推し新聞、ハネムーンのツアーページ</a><span class="t">8:47</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=701" target="_blank" rel="noopener">6. 銀座ツアーの写真ページと、手でやっていた1年前</a><span class="t">11:41</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=842" target="_blank" rel="noopener">7. 番組12個のPodcastと、スコアなファン</a><span class="t">14:02</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=970" target="_blank" rel="noopener">8. 「うちの会社だったら」を知るための質問</a><span class="t">16:10</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=1127" target="_blank" rel="noopener">9. 旅行会社とも違う、パッケージを売らない仕事</a><span class="t">18:47</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=1201" target="_blank" rel="noopener">10. パッケージは売らない旅行会社</a><span class="t">20:01</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=1337" target="_blank" rel="noopener">11. 工程の空き時間にアニメを入れる</a><span class="t">22:17</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=1478" target="_blank" rel="noopener">12. AIで作るコース選択ページ</a><span class="t">24:38</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=1591" target="_blank" rel="noopener">13. ガイドは人がすべて</a><span class="t">26:31</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=1809" target="_blank" rel="noopener">14. 予約が入ったらアサインも自動に</a><span class="t">30:09</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=2033" target="_blank" rel="noopener">15. 上流で受けるか、直接予約か</a><span class="t">33:53</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=2198" target="_blank" rel="noopener">16. 自作の予約サイトとレッスンツール</a><span class="t">36:38</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=2443" target="_blank" rel="noopener">17. 寝ている間に増える日本語教材</a><span class="t">40:43</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=2543" target="_blank" rel="noopener">18. 旅行業の免許と、ユウキさんのブランド</a><span class="t">42:23</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=2666" target="_blank" rel="noopener">19. サイトは業者より、AIに作らせる</a><span class="t">44:26</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=2763" target="_blank" rel="noopener">20. ひとり会社と、増やしたい毎月のお客さん</a><span class="t">46:03</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=2936" target="_blank" rel="noopener">21. 広告もコンペも、相手を選ぶ</a><span class="t">48:56</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=3129" target="_blank" rel="noopener">22. ABテストで勝つ文言を残す</a><span class="t">52:09</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=3213" target="_blank" rel="noopener">23. 作業会、ガイドとのつながり、取材された話</a><span class="t">53:33</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=3464" target="_blank" rel="noopener">24. 個人に届くのは、見ている場所に載ったから</a><span class="t">57:44</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=3600" target="_blank" rel="noopener">25. 分散と実績の見せ方</a><span class="t">1:00:00</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=3820" target="_blank" rel="noopener">26. 実績が見えないサイトとリニューアル</a><span class="t">1:03:40</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=3931" target="_blank" rel="noopener">27. 案件フォルダーから記事を出す</a><span class="t">1:05:31</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=4140" target="_blank" rel="noopener">28. 今、パッとできそうなことは3つ</a><span class="t">1:09:00</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=4362" target="_blank" rel="noopener">29. レザークラフト体験と中目黒のラジオ</a><span class="t">1:12:42</span></li><li><a href="https://yomimono.pages.dev/b/d7479e5f3c/#t=4510" target="_blank" rel="noopener">30. ラーメン、エリア、九州、金沢</a><span class="t">1:15:10</span></li></ul>
+  <div class="note" style="margin-top:18px">胸につけたレコーダーの長回し（80分）とiPhoneのボイスメモの2つを文字起こしし、突き合わせて整えています。会社名とクライアント名は伏せました。数字は本人の発言のままです。</div>
+</section>
+</div>
+
+<footer>まとめ: 市原佑樹（秋葉原アニメツアー）｜ 2026年10月7日 日本橋でのランチ</footer>
+</div>
+
+<nav class="tabs" aria-label="ページ内メニュー">
+<ul>
+  <li><a href="#minutes" data-tab="minutes"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>議事録</a></li>
+  <li><a href="#todo" data-tab="todo"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="m8 12 2.5 2.5L16 9"/></svg>やること</a></li>
+  <li><a href="#prompts" data-tab="prompts"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg>プロンプト</a></li>
+  <li><a href="#proto" data-tab="proto"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16M10 10v10"/></svg>試作</a></li>
+  <li><a href="#talk" data-tab="talk"><svg viewBox="0 0 24 24"><path d="M3 12h2l2-5 3 10 3-14 3 12 2-6h3"/></svg>会話</a></li>
+</ul>
+</nav>
+
+<script>
+const panels=[...document.querySelectorAll('.panel')],links=[...document.querySelectorAll('nav.tabs a')];
+function show(id,push){
+  if(!document.getElementById(id))id='minutes';
+  panels.forEach(p=>p.classList.toggle('on',p.id===id));
+  links.forEach(a=>{a.dataset.tab===id?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')});
+  window.scrollTo({top:0});
+  if(push&&location.hash!=='#'+id)history.replaceState(null,'','#'+id);
+}
+links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.tab,true)}));
+window.addEventListener('hashchange',()=>show(location.hash.slice(1)||'minutes'));
+show(location.hash.slice(1)||'minutes');
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+  const t=document.getElementById(b.dataset.for).textContent;
+  try{await navigator.clipboard.writeText(t)}catch(e){const r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.for));getSelection().removeAllRanges();getSelection().addRange(r)}
+  b.textContent='コピーしました';b.classList.add('done');setTimeout(()=>{b.textContent='コピー';b.classList.remove('done')},1600);
+}));
+</script>
+</body>
+</html>
