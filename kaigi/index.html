@@ -91,7 +91,7 @@ nav.tabs ul{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);max
 nav.tabs a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;height:100%;color:var(--mute);text-decoration:none;font-size:11px;font-weight:500;letter-spacing:.02em}
 nav.tabs a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 nav.tabs a[aria-current]{color:var(--red);font-weight:700}
-@media (max-width:600px){h1{font-size:24px}.cards,.facts{grid-template-columns:1fr}.band{padding:24px 18px}.book{grid-template-columns:100px 1fr;gap:14px}}
+.sp{display:none}@media (max-width:600px){.sp{display:inline}h1{font-size:24px}.cards,.facts{grid-template-columns:1fr}.band{padding:24px 18px}.book{grid-template-columns:100px 1fr;gap:14px}}
 @media (min-width:900px){nav.tabs{background:transparent;border-top:0;backdrop-filter:none}nav.tabs ul{background:rgba(255,255,255,.97);border:1px solid var(--line);border-bottom:0;border-radius:14px 14px 0 0;box-shadow:0 -2px 12px rgba(0,0,0,.05)}}
 </style>
 </head>
@@ -108,7 +108,7 @@ nav.tabs a[aria-current]{color:var(--red);font-weight:700}
 <section>
   <div class="band">
     <p class="num" style="color:#ff8a94">01 ／ Mioさんの言葉から</p>
-    <h2>「今、パッとできそうなことは3つ」</h2>
+    <h2>「今、<br class="sp">パッとできそうなことは3つ」</h2>
     <p class="sub">食後にMioさんが挙げた3つを、そのまま柱にします。</p>
     <ol>
       <li><div class="n">1</div><div><b>来ている案件の空き時間に、選択式で体験を入れる</b><p>企業視察や教育旅行の行程には、必ず自由時間の枠がある。そこにアニメだけでなく、ユウキ側のメニューを「3日なら3日ぶん」選択肢にして出し、お客さん側に選んでもらう。選ばせる形にすると決まりやすい。</p><div class="first"><span>最初の1件</span>次に日程が固まる案件で、日数・人数・出発地を送ってもらい、選択ページを作って返す。見本は「試作」タブ。</div></div></li>
