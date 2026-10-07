@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>AI社員のつくり方</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23C92A3A'/><circle cx='50' cy='38' r='16' fill='white'/><path d='M22 84c4-18 16-26 28-26s24 8 28 26z' fill='white'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a1a;--sub:#5f5f5f;--mute:#8a8a8a;--line:#e6e6e6;--bg:#fff;--soft:#f7f6f4;--red:#C92A3A;--red-soft:#fbeeef}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",system-ui,sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;line-break:strict;overflow-wrap:break-word;padding-bottom:48px}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+header{padding:44px 0 28px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.1em;color:var(--red);font-weight:700}
+.eyebrow a{color:inherit;text-decoration:none}
+h1{font-size:28px;line-height:1.4;margin:10px 0 12px;font-weight:700}
+.lead{color:var(--sub);font-size:15px;max-width:36em}
+section{padding:36px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.num{font-size:12px;color:var(--red);font-weight:700;letter-spacing:.1em}
+h2{font-size:21px;line-height:1.5;margin:4px 0 14px;font-weight:700}
+h3{font-size:16px;font-weight:700;line-height:1.6}
+p+p{margin-top:10px}
+.sub{color:var(--sub);font-size:14.5px}
+.shot{display:block;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:18px 0 12px}
+.shot img{display:block;width:100%;height:auto}
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;padding:11px 18px;border-radius:9px;font-size:14px;font-weight:700}
+.quote{border-left:3px solid var(--red);padding:2px 0 2px 14px;margin:18px 0 0;font-size:15px;font-weight:700}
+.quote small{display:block;font-weight:500;color:var(--mute);font-size:12px;margin-top:2px}
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.role{background:var(--soft);border-radius:12px;padding:16px}
+.role .tag{font-size:11px;color:var(--red);font-weight:700;letter-spacing:.06em}
+.role h3{font-size:15px;margin:2px 0 6px}
+.role p{font-size:13px;color:var(--sub);line-height:1.7}
+form{display:grid;gap:18px;margin-top:8px}
+fieldset{border:0}
+legend,label.k{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
+legend small,label.k small{font-weight:400;color:var(--mute);margin-left:6px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;background:#fff}
+.seg input:checked+span{border-color:var(--ink);background:var(--ink);color:#fff;font-weight:700}
+.seg input:focus-visible+span{outline:2px solid var(--red);outline-offset:2px}
+input[type=text]{width:100%;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff}
+input[type=text]:focus{outline:2px solid var(--ink);outline-offset:-1px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.out{border:1px solid var(--ink);border-radius:14px;padding:18px;margin-top:22px}
+.out .use{font-size:12px;color:var(--red);font-weight:700;letter-spacing:.06em}
+.out h3{margin:2px 0 10px}
+.out pre{white-space:pre-wrap;font-family:inherit;font-size:14px;line-height:1.8;background:var(--soft);border-radius:10px;padding:14px;color:#333}
+.out .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px}
+.out .row small{color:var(--mute);font-size:12px}
+.out+.out{margin-top:12px;border-color:var(--line)}
+.copy{appearance:none;border:1px solid var(--ink);background:#fff;color:var(--ink);font:inherit;font-size:13px;font-weight:700;padding:7px 14px;border-radius:8px;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.copy.done{background:var(--ink);color:#fff}
+.steps{list-style:none;counter-reset:s;border-top:2px solid var(--ink)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.steps li::before{content:counter(s);font-size:20px;font-weight:700;color:var(--red);line-height:1.4}
+.steps b{display:block;font-size:15px}
+.steps span{font-size:14px;color:var(--sub)}
+.note{background:var(--soft);border-radius:12px;padding:16px 18px;font-size:13.5px;color:var(--sub);line-height:1.8;margin-top:16px}
+.note b{color:var(--ink)}
+footer{padding:28px 0 0;color:var(--mute);font-size:12.5px}
+footer a{color:var(--mute)}
+@media (max-width:600px){h1{font-size:24px}.roles,.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="eyebrow"><a href="../kaigi/">2026.10.07 ランチミーティングの続き</a></p>
+  <h1>自分好みのAI社員をつくる</h1>
+  <p class="lead">名前と性格を決めて、仕事を1つだけ任せる。ユウキの社員名簿と同じつくり方を、Mioさんの仕事に合わせて手順にしました。下の欄を埋めると、そのまま貼れる指示文ができます。</p>
+</header>
+
+<section>
+  <p class="num">01 見本</p>
+  <h2>ユウキの社員名簿</h2>
+  <p class="sub">ランチで見せた画面のデモ版です。社員ごとに名前・顔・口ぐせがあり、それぞれが自分の持ち場の「次にやること」を話します。中身は見本用のデータです。</p>
+  <a class="shot" href="https://yuki-office.pages.dev/demo/" target="_blank" rel="noopener"><img src="../img/office.jpg" alt="ユウキ商會オフィスのデモ画面。左に参謀の社員の大きな絵、右に社員5人がそれぞれ担当の仕事を一言ずつ話している" width="1600" height="1000"></a>
+  <a class="btn" href="https://yuki-office.pages.dev/demo/" target="_blank" rel="noopener">デモを開く</a>
+  <p class="quote">「ああいうのが見えた方がやりたくなる」<small>Mioさん・ランチにて</small></p>
+</section>
+
+<section>
+  <p class="num">02 最初の3人</p>
+  <h2>役割はランチで出た話から</h2>
+  <p class="sub">12人いても、最初に雇うのは1人で十分です。Mioさんの仕事なら、この3つのどれかから始めるのが早いと思います。</p>
+  <div class="roles">
+    <div class="role"><span class="tag">手配担当</span><h3>工程の叩き台</h3><p>案件の条件を話すと、日ごとの工程と手配の一覧、確認したい質問を返す。</p></div>
+    <div class="role"><span class="tag">企画担当</span><h3>面白い1本を探す</h3><p>来年の提案に入れるユニーク体験を、相手に合わせて3つ選んで理由を添える。</p></div>
+    <div class="role"><span class="tag">広報担当</span><h3>実績を記事にする</h3><p>終わった案件のメモから、社名や金額を伏せた実績紹介の下書きを書く。</p></div>
+  </div>
+</section>
+
+<section>
+  <p class="num">03 つくる</p>
+  <h2>名前と性格を決める</h2>
+  <p class="sub">選ぶたびに下の指示文が書き変わります。好きなものや口ぐせは空欄のままでも動きます。</p>
+  <form id="f" onsubmit="return false">
+    <fieldset><legend>役割</legend><div class="seg">
+      <label><input type="radio" name="role" value="tehai" checked><span>手配担当</span></label>
+      <label><input type="radio" name="role" value="kikaku"><span>企画担当</span></label>
+      <label><input type="radio" name="role" value="kouhou"><span>広報担当</span></label>
+    </div></fieldset>
+    <div class="two">
+      <div><label class="k" for="name">名前<small>呼びやすい名前</small></label><input type="text" id="name" placeholder="例：ハナ"></div>
+      <div><label class="k" for="call">Mioさんの呼び方</label><input type="text" id="call" value="社長"></div>
+    </div>
+    <fieldset><legend>性格</legend><div class="seg">
+      <label><input type="radio" name="persona" value="0" checked><span>きっちり丁寧</span></label>
+      <label><input type="radio" name="persona" value="1"><span>明るく元気</span></label>
+      <label><input type="radio" name="persona" value="2"><span>頼れるベテラン</span></label>
+    </div></fieldset>
+    <div class="two">
+      <div><label class="k" for="like">好きなもの・こだわり<small>任意</small></label><input type="text" id="like" placeholder="例：時刻表、温泉、段取り"></div>
+      <div><label class="k" for="phrase">口ぐせ<small>任意</small></label><input type="text" id="phrase" placeholder="例：移動は余裕をみておきます"></div>
+    </div>
+  </form>
+
+  <div class="out">
+    <span class="use">指示文</span>
+    <h3 id="outTitle">手配担当の指示文</h3>
+    <pre id="prompt"></pre>
+    <div class="row"><small>04 の手順で「指示」の欄に貼ります</small><button class="copy" data-for="prompt">コピー</button></div>
+  </div>
+  <div class="out">
+    <span class="use">顔をつける</span>
+    <h3>似顔絵を描かせる文</h3>
+    <pre id="face"></pre>
+    <div class="row"><small>ChatGPTに貼ると絵が出ます。気に入るまで描き直させてOK</small><button class="copy" data-for="face">コピー</button></div>
+  </div>
+</section>
+
+<section>
+  <p class="num">04 置き場所</p>
+  <h2>社員1人に部屋を1つ</h2>
+  <p class="sub">ChatGPTでもClaudeでも「プロジェクト」という機能を使います。普段使っている方で大丈夫です。</p>
+  <ol class="steps">
+    <li><div><b>プロジェクトを新しく作る</b><span>名前は社員の名前にします。描かせた似顔絵をアイコン代わりに保存しておくと、開いた時に誰の部屋か分かります。</span></div></li>
+    <li><div><b>「指示」の欄に指示文を貼る</b><span>プロジェクトの設定にある指示（カスタム指示）の欄です。ここに入れると、毎回説明し直さなくて済みます。</span></div></li>
+    <li><div><b>その社員が使う資料を入れる</b><span>手配担当なら過去の工程表や手配表の型、広報担当なら過去の実績メモ。お手本があるほど、Mioさんの書き方に寄ります。</span></div></li>
+    <li><div><b>案件ごとにチャットを分ける</b><span>同じ部屋の中で、案件1件につき新しいチャットを1つ。話が混ざらず、あとで探すのも楽です。</span></div></li>
+  </ol>
+</section>
+
+<section>
+  <p class="num">05 育てる</p>
+  <h2>好みに寄せていく</h2>
+  <ol class="steps">
+    <li><div><b>直したら、指示にも1行足す</b><span>返事が気に入らない時はその場で直させるだけでなく、「次からは〜して」を指示の欄に書き足します。同じ注意を2回しなくなります。</span></div></li>
+    <li><div><b>1人が回ってから2人目</b><span>週に何回か自然に話しかけるようになったら、次の役割を雇います。最初から3人並べると、誰にも話しかけなくなります。</span></div></li>
+    <li><div><b>3人そろったら名簿にする</b><span>名前と顔を1枚に並べると、上のデモのような「自分の会社」になります。ここはユウキが作れます。</span></div></li>
+  </ol>
+  <div class="note"><b>決めておくと安心なこと。</b>どの指示文にも「推測で埋めずに質問する」「金額・日程・相手先は私が出した情報だけを使う」を入れてあります。お客さんの名前や見積もりを外に出す文章を作らせる時は、必ずMioさんが目を通してから使ってください。</div>
+</section>
+
+<section>
+  <p class="num">06 一緒に</p>
+  <h2>1人目は一緒に作れます</h2>
+  <p class="sub">作業会に来てもらえれば、その場で1人目の部屋を作って、実際の案件で1回話しかけるところまでやります。名前と役割だけ考えておいてもらえれば十分です。</p>
+</section>
+
+<footer>ユウキ ／ <a href="../kaigi/">振り返りページに戻る</a></footer>
+</div>
+
+<script>
+const ROLE={
+  tehai:{t:'手配担当',job:'案件の条件を聞いて、工程の叩き台と手配の段取りを作ること',out:['工程の叩き台（日ごと・時間つき。移動時間は少し多めに見積もる）','必要な手配の一覧（交通、宿、訪問先、ガイド、食事）と、それぞれの締め切りの目安','私に確認したい質問'],rule:'人数・日数・出発地・自由時間のどれかが分からない時は、工程を作る前に質問する',img:'手帳とペン'},
+  kikaku:{t:'企画担当',job:'来年の提案に入れる「面白い1本」を探して、提案できる形にすること',out:['候補を3つ（所要時間、人数の上限、東京からの移動時間つき）','それぞれ、この相手に刺さる理由を1行','下見や問い合わせが必要なこと'],rule:'実在しない店や体験を作らない。確かめられないものは「要確認」と書く',img:'地図と付箋'},
+  kouhou:{t:'広報担当',job:'終わった案件のメモや写真の説明から、実績紹介の記事の下書きを作ること',out:['タイトル案を3つ','本文の下書き（800字前後）','伏せた情報の一覧（何をどう言い換えたか）'],rule:'会社名、個人名、金額は必ず伏せる。公開するかどうかは私が決める',img:'カメラとノート'}
+};
+const PERSONA=[
+  {t:'きっちり丁寧',d:'きっちりしていて丁寧。言葉づかいは敬語で、短くまとめる',img:'落ち着いた表情、きちんとした服装'},
+  {t:'明るく元気',d:'明るく前向き。敬語だけど堅すぎず、良いところは一言ほめてくれる',img:'明るい笑顔、軽やかな服装'},
+  {t:'頼れるベテラン',d:'経験豊富で頼れる先輩。危ないところは遠慮なく指摘する',img:'余裕のある微笑み、ジャケット姿'}
+];
+const $=id=>document.getElementById(id);
+function render(){
+  const f=$('f'),r=ROLE[f.role.value],p=PERSONA[+f.persona.value];
+  const name=$('name').value.trim()||'○○',call=$('call').value.trim()||'社長',like=$('like').value.trim(),phrase=$('phrase').value.trim();
+  const who=[`性格は${p.d}。`];
+  if(like)who.push(`好きなものは${like}。`);
+  if(phrase)who.push(`口ぐせは「${phrase}」。`);
+  who.push(`私のことは「${call}」と呼んでください。`);
+  $('outTitle').textContent=`${r.t}「${name}」の指示文`;
+  $('prompt').textContent=
+`あなたは私の会社の${r.t}の社員で、名前は${name}です。
+
+【私の会社】
+海外の企業や学校の日本視察・研修・教育旅行を、1件ずつ手作りで手配しています。パッケージは売らず、相手に合わせて組みます。
+
+【あなたの仕事】
+${r.job}。
+
+【毎回の返し方】
+${r.out.map((o,i)=>`${i+1}. ${o}`).join('\n')}
+
+【人柄】
+${who.join('')}
+
+【守ること】
+・分からないことは推測で埋めずに質問する
+・金額、日程、相手先の名前は、私が出した情報だけを使う
+・${r.rule}`;
+  $('face').textContent=
+`「${name}」という名前の、旅行会社で${r.t}をしている社員のキャラクターを描いてください。
+性格は${p.t}で、${p.img}。${like?`${like}が好き。`:''}${r.img}を持っている。
+アニメ調、胸から上、正面向き、無地の明るい背景、正方形。文字は入れない。`;
+}
+$('f').addEventListener('input',render);
+render();
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+  const el=$(b.dataset.for);
+  try{await navigator.clipboard.writeText(el.textContent)}catch(e){const s=document.createRange();s.selectNodeContents(el);getSelection().removeAllRanges();getSelection().addRange(s)}
+  b.textContent='コピーしました';b.classList.add('done');setTimeout(()=>{b.textContent='コピー';b.classList.remove('done')},1600);
+}));
+</script>
+</body>
+</html>
