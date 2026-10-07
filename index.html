@@ -39,6 +39,7 @@ ul.list b{font-weight:700}
 .q li:first-child{border-top:none}
 .q li::before{content:counter(q);position:absolute;left:0;top:12px;width:1.6em;height:1.6em;border-radius:50%;background:var(--red);color:#fff;font-size:12px;display:grid;place-items:center;font-weight:700}
 a.btn{display:inline-block;margin-top:16px;background:var(--red);color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:700}
+a.go{display:inline-block;margin:10px 14px 0 0;color:var(--red);font-size:14px;font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;line-height:1.5}a.go::after{content:" →"}ul.list li span a.go:first-of-type{margin-left:0}ul.list span{display:block}
 footer{padding:40px 0 64px;color:var(--sub);font-size:13px}
 @media (max-width:600px){h1{font-size:24px}.cards{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.fact{display:flex;align-items:baseline;gap:14px}.fact .k br{display:none}.fact .v{font-size:20px;min-width:4.2em}ul.list li{grid-template-columns:1fr;gap:2px}}
 </style>
@@ -61,7 +62,7 @@ footer{padding:40px 0 64px;color:var(--sub);font-size:13px}
     <div class="fact"><div class="v">英語</div><div class="k">ゲストの約7割が<br>アメリカから</div></div>
   </div>
   <ul class="list">
-    <li><b>1日ツアー</b><span>旅行会社さんからの依頼で、行程作りから当日の案内まで受けています</span></li>
+    <li><b>1日ツアー</b><span>旅行会社さんからの依頼で、行程作りから当日の案内まで受けています<br><a class="go" href="https://airbnb-trips.pxf.io/MMayn" target="_blank" rel="noopener">ツアーの予約ページ</a><a class="go" href="https://www.instagram.com/yukianimesensei/" target="_blank" rel="noopener">ツアーの様子（Instagram）</a></span></li>
     <li><b>団体</b><span>人数が多い時は、知り合いのガイドとチームを組んで回します</span></li>
     <li><b>教育旅行</b><span>アニメ・マンガを入り口に、日本の文化や仕事の話までつなげる行程が組めます</span></li>
     <li><b>受け方</b><span>日程が早めに分かれば、連続の日程も調整しやすくなります</span></li>
@@ -72,10 +73,10 @@ footer{padding:40px 0 64px;color:var(--sub);font-size:13px}
   <p class="num">02</p>
   <h2>AIで実際に動かしているもの</h2>
   <div class="cards">
-    <div class="card"><span class="who">予約管理</span><h3>予約のかぶりを自動で知らせる</h3><p>複数の予約サイトから届くメールを読み、カレンダーに自動で入れます。ツアー同士が重なった時だけスマホに通知が届きます。</p></div>
-    <div class="card"><span class="who">行程作り</span><h3>事前アンケートから行程の叩き台</h3><p>ゲストの好きな作品や希望を集め、回る順番と昼食の候補まで一度に出します。</p></div>
-    <div class="card"><span class="who">ゲスト対応</span><h3>グループごとの旅のしおりページ</h3><p>ゲストごとに行程と地図を1ページにまとめます。スマホで見られて、印刷もできます。</p></div>
-    <div class="card"><span class="who">集客</span><h3>レビューを自動でSNSへ</h3><p>届いたレビューを画像にしてInstagramに投稿するところまで、自動で回しています。</p></div>
+    <div class="card"><span class="who">予約管理</span><h3>予約のかぶりを自動で知らせる</h3><p>複数の予約サイトから届くメールを読み、カレンダーに自動で入れます。ツアー同士が重なった時だけスマホに通知が届きます。</p><a class="go" href="https://yukitchy.github.io/mokumoku-sheet/?d=kaburi-ban" target="_blank" rel="noopener">仕組みの説明を見る</a></div>
+    <div class="card"><span class="who">行程作り</span><h3>事前アンケートから行程の叩き台</h3><p>ゲストの好きな作品や希望を集め、回る順番と昼食の候補まで一度に出します。</p><a class="go" href="https://yukitchy.github.io/mokumoku-sheet/?d=akiba-tour-shokunin" target="_blank" rel="noopener">仕組みの説明を見る</a></div>
+    <div class="card"><span class="who">ゲスト対応</span><h3>グループごとの旅のしおりページ</h3><p>ゲストごとに行程と地図を1ページにまとめます。スマホで見られて、印刷もできます。</p><a class="go" href="https://yukitchy.github.io/course-picker/" target="_blank" rel="noopener">これまでのコースを見る</a></div>
+    <div class="card"><span class="who">集客</span><h3>レビューを自動でSNSへ</h3><p>届いたレビューを画像にしてInstagramに投稿するところまで、自動で回しています。</p><a class="go" href="https://www.instagram.com/yukianimesensei/" target="_blank" rel="noopener">Instagramを見る</a></div>
   </div>
   <p style="margin-top:20px;font-size:15px;color:var(--sub)">こうした仕組みは、ほぼ一人でAIと一緒に作っています。</p>
 </section>
@@ -85,8 +86,8 @@ footer{padding:40px 0 64px;color:var(--sub);font-size:13px}
   <h2>ご一緒できそうなこと</h2>
   <ul class="list">
     <li><b>ガイド</b><span>教育旅行や視察の東京パートを、ガイドチームでお受けします。都合が合わない日は、信頼できるガイドをご紹介します</span></li>
-    <li><b>しおり作り</b><span>団体ごとの行程表や事前資料をAIで作る仕組みを、御社の案件に合わせてご用意できます</span></li>
-    <li><b>作業会</b><span>インバウンドに関わる人が集まって、AIで自分の仕事の困りごとを1つ片付ける会です。次回は10月11日（日）11時から、住吉で開きます</span></li>
+    <li><b>しおり作り</b><span>団体ごとの行程表や事前資料をAIで作る仕組みを、御社の案件に合わせてご用意できます<br><a class="go" href="https://yukitchy.github.io/course-picker/" target="_blank" rel="noopener">モデルコース棚</a></span></li>
+    <li><b>作業会</b><span>インバウンドに関わる人が集まって、AIで自分の仕事の困りごとを1つ片付ける会です。次回は10月11日（日）11時から、住吉で開きます<br><a class="go" href="https://claude.ai/code/artifact/bbafe2ac-e03f-4750-8abd-08cabf9cf76a" target="_blank" rel="noopener">会の中身</a><a class="go" href="https://claude.ai/code/artifact/5edd4d3f-5753-4b77-bbf3-2b6d4017c5c6" target="_blank" rel="noopener">前回の様子</a></span></li>
   </ul>
 </section>
 
