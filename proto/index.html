@@ -2,76 +2,93 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>空き時間の過ごし方を選ぶ</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C92A3A'/%3E%3Ctext x='32' y='45' font-size='38' font-weight='700' text-anchor='middle' fill='%23fff' font-family='sans-serif'%3E選%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1a1a1a;--acc:#C92A3A;--sub:#555;--mute:#777;--line:#e4e4e4}
+:root{--ink:#1a1a1a;--acc:#C92A3A;--acc-soft:#fbeeef;--sub:#555;--mute:#808080;--line:#e6e6e6;--soft:#f7f6f4}
 *{box-sizing:border-box}
-body{margin:0;background:#fff;color:var(--ink);font:400 15px/1.7 "Noto Sans JP",sans-serif;line-break:strict;word-break:normal;overflow-wrap:break-word;padding-bottom:calc(88px + env(safe-area-inset-bottom))}
-h1,h2,h3{text-wrap:balance;margin:0}
-.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
-header{padding:32px 0 8px}
-h1{font-size:26px;line-height:1.4;font-weight:700}
-.sub{text-wrap:balance;margin:8px 0 0;font-size:14px;color:var(--mute)}
-.intro{margin:16px 0 0;font-size:15px}
-.slot{padding-top:36px}
-.slot h2{font-size:20px;font-weight:700;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;border-bottom:1px solid var(--ink);padding-bottom:8px}
-.slot h2 small{font-size:13px;font-weight:500;color:var(--mute)}
-.grid{display:grid;gap:16px;margin-top:16px;grid-template-columns:1fr}
-.cw{display:flex;flex-direction:column;gap:8px}
-.src{font-size:13px;font-weight:700;color:var(--acc);text-decoration:none;align-self:flex-start}
-.src::after{content:" ↗"}
-.card{flex:1;display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;background:#fff;border:2px solid var(--line);border-radius:6px;padding:0;overflow:hidden;cursor:pointer;position:relative;transition:border-color 120ms;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+body{margin:0;background:#fff;color:var(--ink);font:400 15px/1.75 "Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;line-break:strict;overflow-wrap:break-word;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+h1,h2,h3{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 8px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--acc)}
+h1{font-size:28px;line-height:1.35;font-weight:700;margin-top:8px}
+.intro{margin:12px 0 0;font-size:15px;color:var(--sub);max-width:40em}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:13px;color:var(--sub)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+.dot.c{background:var(--ink)}
+.slot{padding-top:44px}
+.slot-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.slot-h h2{font-size:21px;font-weight:700;line-height:1.3}
+.slot-h .t{font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}
+.slot-h .n{margin-left:auto;font-size:12px;color:var(--mute)}
+.grid{display:grid;gap:14px;margin-top:16px;grid-template-columns:1fr}
+.cw{display:flex;flex-direction:column}
+.card{flex:1;display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:0;overflow:hidden;cursor:pointer;position:relative;transition:border-color .15s,box-shadow .15s}
+.card:hover{border-color:#bdbdbd}
 .card:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.card[aria-checked=true]{border-color:var(--acc)}
-.ph{aspect-ratio:16/10;display:flex;align-items:flex-end;padding:14px;color:#fff;font-size:28px;font-weight:700;line-height:1.3;overflow:hidden}
-.ph.im{padding:0}.ph img{width:100%;height:100%;object-fit:cover;display:block}
-.chip{position:absolute;top:10px;right:10px;background:var(--acc);color:#fff;font-size:12px;font-weight:700;padding:1px 10px;border-radius:99px;display:none}
+.card[aria-checked=true]{border-color:var(--acc);box-shadow:0 0 0 1.5px var(--acc)}
+.ph{aspect-ratio:3/2;overflow:hidden;background:var(--soft)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.chip{position:absolute;top:10px;left:10px;background:var(--acc);color:#fff;font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;display:none}
 .card[aria-checked=true] .chip{display:block}
-.body{display:flex;flex-direction:column;flex:1;padding:14px 14px 16px}
-.lab{font-size:12px;font-weight:700;color:var(--acc)}
-.ttl{font-size:17px;font-weight:700;line-height:1.5;margin-top:2px;text-wrap:balance}
-.dsc{font-size:14px;color:var(--sub);margin:6px 0 12px}
-.meta{font-size:13px;color:var(--mute);margin-top:auto;padding-bottom:12px;line-height:1.6}
-.tog{display:block;text-align:center;font-size:14px;font-weight:700;border:1px solid var(--ink);border-radius:4px;padding:7px 0;transition:background 120ms,color 120ms,border-color 120ms}
+.body{display:flex;flex-direction:column;flex:1;padding:14px 16px 16px}
+.lab{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--acc);letter-spacing:.04em}
+.lab.c{color:var(--ink)}
+.ttl{font-size:17px;font-weight:700;line-height:1.5;margin-top:4px}
+.by{font-size:12.5px;color:var(--mute);margin-top:2px}
+.dsc{font-size:14px;color:var(--sub);margin:8px 0 12px;line-height:1.75}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:auto 0 14px;font-size:12.5px;line-height:1.6;padding-top:10px;border-top:1px solid var(--line)}
+.spec dt{color:var(--mute)}
+.spec dd{margin:0;font-variant-numeric:tabular-nums}
+.tog{display:block;text-align:center;font-size:14px;font-weight:700;border:1px solid var(--ink);border-radius:7px;padding:8px 0;transition:background .15s,color .15s,border-color .15s}
 .card[aria-checked=true] .tog{background:var(--acc);border-color:var(--acc);color:#fff}
-.card[aria-checked=true] .tog::before{content:"選択中　"}
+.card[aria-checked=true] .tog::before{content:"選択中"}
 .card[aria-checked=true] .tog span{display:none}
+.src{display:flex;justify-content:space-between;gap:8px;margin-top:8px;padding:0 2px;font-size:12.5px}
+.src a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1px solid var(--line)}
+.src a::after{content:" ↗";color:var(--acc)}
+.src .rt{color:var(--sub);font-variant-numeric:tabular-nums;white-space:nowrap}
+.src .rt b{color:var(--acc)}
+footer{margin-top:48px;padding:18px 0 8px;border-top:1px solid var(--line);font-size:12.5px;color:var(--mute)}
+footer a{color:var(--sub)}
 .cr{margin:8px 0 0;font-size:11px;line-height:1.7}
-footer{margin-top:40px;padding:16px 0 8px;border-top:1px solid var(--line);font-size:12px;color:var(--mute)}
-.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);box-shadow:0 1px 2px rgba(0,0,0,.06);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
-.bar .in{max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.cnt{font-size:15px;font-weight:700;white-space:nowrap}
-.btn{font:700 15px/1.4 "Noto Sans JP",sans-serif;background:var(--acc);color:#fff;border:0;border-radius:4px;padding:11px 18px;cursor:pointer;transition:opacity 120ms}
+.bar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 20px calc(10px + env(safe-area-inset-bottom));z-index:5}
+.bar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cnt{font-size:15px;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.btn{font:700 15px/1.4 "Noto Sans JP",sans-serif;background:var(--acc);color:#fff;border:0;border-radius:7px;padding:11px 18px;cursor:pointer}
 .btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--ink)}
 .ov{position:fixed;inset:0;background:rgba(26,26,26,.5);display:none;align-items:flex-end;justify-content:center;z-index:10}
 .ov.on{display:flex}
-.pn{background:#fff;width:100%;max-width:560px;border-radius:10px 10px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom))}
-@media(min-width:760px){.ov{align-items:center}.pn{border-radius:10px}}
+.pn{background:#fff;width:100%;max-width:560px;border-radius:12px 12px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom))}
 .pn h3{font-size:18px}
-.pn textarea{width:100%;height:150px;margin:12px 0;border:1px solid var(--line);border-radius:4px;padding:10px;font:400 14px/1.8 "Noto Sans JP",sans-serif;color:var(--ink);resize:none}
+.pn textarea{width:100%;height:200px;margin:12px 0;border:1px solid var(--line);border-radius:7px;padding:12px;font:400 14px/1.8 "Noto Sans JP",sans-serif;color:var(--ink);resize:none}
 .row{display:flex;gap:8px;justify-content:flex-end}
-.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--ink)}
-@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr)}h1{font-size:32px}header{padding-top:48px}}
+@media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}.grid.g4{grid-template-columns:repeat(4,1fr)}.grid.g4 .ttl{font-size:16px}h1{font-size:34px}header{padding-top:56px}.ov{align-items:center}.pn{border-radius:12px}}
+@media(min-width:1000px) and (max-width:1100px){.grid.g4{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
+<p class="eyebrow">見本 ／ 3日間の視察プログラム</p>
 <h1>空き時間の過ごし方を選ぶ</h1>
-<p class="sub">3日間の視察プログラム ／ 自由時間のオプション（見本）</p>
-<p class="intro">各枠からひとつ選んでください。選んだ内容は最後にまとめて送れます。<br>9本とも、実際に海外のゲストへ出したコースです。各カードの下から、そのとき出したページを見られます。</p>
+<p class="intro">各枠からひとつ選んでください。選んだ内容は最後にまとめてコピーできます。どの選択肢も、実際に催行しているツアーか、海外のゲストへ実際に出したコースです。</p>
+<div class="legend"><span><i class="dot"></i>催行中のツアー（評価は予約サイトのもの）</span><span><i class="dot c"></i>過去にゲストへ出したコース</span></div>
 </header>
 <main id="main"></main>
-<footer>これは見本です。実際の案件では、日程・人数・移動時間に合わせて選択肢を組み直します。店や施設の営業日は案件ごとに確認し直します。
-<p class="cr">写真: Wikimedia Commons ／ Tsutaya-1 (CC BY-SA 3.0)・Sampuru plastic food items (CC BY 2.0)・GINZA SIX Atrium View 201912 (CC BY 4.0)・Akihabara (CC BY 2.0)・Bookshelves with manga (CC BY 2.0)・Ghibli Museum Mitaka 08 (CC BY 2.0)・Tsukiji Outer Market -02 (CC BY-SA 3.0)・Traditional wedding at Meiji-jingu, 2006-10-29 (CC BY-SA 2.0)・The Great Wave off Kanagawa (Public domain)</p></footer>
+<footer>これは見本です。実際の案件では、日程・人数・移動時間に合わせて選択肢を組み直します。店や施設の営業日、各ツアーの空きは案件ごとに確認し直します。 ／ <a href="../taiken/">体験の一覧を見る</a>
+<p class="cr">写真: ツアーは各主催者の掲載写真。コースは Wikimedia Commons ／ Tsutaya-1 (CC BY-SA 3.0)・Sampuru plastic food items (CC BY 2.0)・GINZA SIX Atrium View 201912 (CC BY 4.0)・Akihabara (CC BY 2.0)・Bookshelves with manga (CC BY 2.0)・Ghibli Museum Mitaka 08 (CC BY 2.0)・Tsukiji Outer Market -02 (CC BY-SA 3.0)・Traditional wedding at Meiji-jingu, 2006-10-29 (CC BY-SA 2.0)・The Great Wave off Kanagawa (Public domain)</p></footer>
 </div>
 
-<div class="bar"><div class="in"><span class="cnt" id="cnt">選択 0/3</span><button class="btn" id="sum" disabled>選んだ内容をまとめる</button></div></div>
+<div class="bar"><div class="in"><span class="cnt" id="cnt">選択 0/5</span><button class="btn" id="sum" disabled>選んだ内容をまとめる</button></div></div>
 
 <div class="ov" id="ov"><div class="pn" role="dialog" aria-label="選んだ内容">
 <h3>選んだ内容</h3>
@@ -79,28 +96,28 @@ footer{margin-top:40px;padding:16px 0 8px;border-top:1px solid var(--line);font-
 <div class="row"><button class="btn ghost" id="close">閉じる</button><button class="btn" id="copy">コピー</button></div>
 </div></div>
 
+<script src="../data/exp.js"></script>
 <script>
 const S=[
-{n:"Day 1 午後",t:"13:00–17:30",o:[
-["渋谷・代官山・中目黒","坂を下って川まで歩く","スクランブル交差点から20分歩いて代官山の蔦屋書店へ。最後は目黒川沿いのカフェ通り。全部徒歩で、話しながら回れる。","13:00–17:15","渋谷駅ハチ公前 → 代官山T-SITE → 目黒川 → スターバックス リザーブ ロースタリー","c1.jpg","https://yukitchy.github.io/shibuya-walk/#detail-C"],
-["浅草・かっぱ橋","食品サンプルを自分で作る","飲食店の道具街かっぱ橋で、店先の食品サンプルを自分で作る。そのまま歩いて浅草寺と仲見世へ。手を動かす体験と土産が一度に済む。","13:30–17:00","食品サンプル作り → かっぱ橋道具街 → 浅草寺 → 仲見世","c2.jpg","https://yukitchy.github.io/rick-tokyo-oct5/#detail-F"],
-["銀座","文房具と老舗を歩いて回る","伊東屋、三越のデパ地下、木村屋、GINZA SIXの屋上庭園、お茶、民芸品の店。端から端まで約2km、平らで電車なし。","13:30–17:15","伊東屋 → 銀座三越 → 木村屋 → GINZA SIX → 中村藤吉 → たくみ","c3.jpg","https://yukitchy.github.io/rick-tokyo-oct5/#detail-G"]]},
-{n:"Day 2 終日",t:"10:00–18:00",o:[
-["秋葉原","秋葉原を上から下まで","ラジオ会館やまんだらけの大型店と、観光客が見つけにくい小さな店を両方回る。レトロゲーム、メイドカフェ、最後は神田明神。","10:00–17:30","ラジオ会館 → まんだらけ → レトロゲームと裏通り → メイドカフェ → 神田明神","c4.jpg","https://yukitchy.github.io/manga-week/#detail-1"],
-["椎名町・池袋","マンガが生まれた場所","午前は手塚治虫らが住んだアパートを再現したトキワ荘マンガミュージアム。午後は池袋のアニメイト本店、乙女ロード、ポケモンセンター。","10:00–18:00","トキワ荘マンガミュージアム → アニメイト池袋本店 → 乙女ロード → ポケモンセンターメガトウキョー","c5.jpg","https://yukitchy.github.io/manga-week/#detail-2"],
-["三鷹・中野","ジブリ美術館と中野ブロードウェイ","午前はジブリ美術館（チケットは数か月前に予約が必要）。午後は中野ブロードウェイで原画セルや古いコミックを探す。","10:00–17:00","ジブリ美術館 → 井の頭公園 → 中野ブロードウェイ","c6.jpg","https://yukitchy.github.io/manga-week/#detail-3"]]},
-{n:"Day 3 帰国前",t:"7:30–16:00",o:[
-["築地・浜離宮","朝の市場と昼前の抹茶","時差ぼけで早く目が覚める3日目向け。朝の築地場外市場で朝食、浜離宮の茶屋で抹茶。昼過ぎにはホテルへ戻れる。","7:30–12:30","築地場外市場 → 市場で朝食 → 浜離宮恩賜庭園 → 中島の御茶屋","c7.jpg","https://yukitchy.github.io/rick-tokyo-sunday/#detail-A"],
-["明治神宮・代々木・表参道","神宮の森と日曜の公園","明治神宮の森を歩き、代々木公園へ。日曜は楽器やダンスの人たちで公園がにぎわう。昼は表参道、最後に渋谷。","9:30–15:30","明治神宮 → 代々木公園 → 表参道でランチ → 渋谷","c8.jpg","https://yukitchy.github.io/rick-tokyo-sunday/#detail-C"],
-["両国","江戸東京と北斎","両国の博物館を2つ。昼はちゃんこ、国技館と旧安田庭園も通る。屋内中心なので雨の日でも組める。","10:00–15:45","江戸東京博物館 → ちゃんこの昼食 → すみだ北斎美術館 → 国技館・旧安田庭園","c9.jpg","https://yukitchy.github.io/rick-tokyo-sunday/#detail-B"]]}];
-const pick=[null,null,null],$=id=>document.getElementById(id);
-const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-$("main").innerHTML=S.map((s,i)=>`<section class="slot"><h2>${s.n}<small>（${s.t}）</small></h2><div class="grid" role="radiogroup" aria-label="${s.n}">`+
-s.o.map((o,j)=>`<div class="cw"><button type="button" class="card" role="radio" aria-checked="false" data-i="${i}" data-j="${j}"><div class="ph im"><img src="../img/${o[5]}" alt=""></div><span class="chip">選択中</span><div class="body"><div class="lab">${esc(o[0])}</div><div class="ttl">${esc(o[1])}</div><div class="dsc">${esc(o[2])}</div><div class="meta">${o[3]}<br>${esc(o[4])}</div><span class="tog"><span>選ぶ</span></span></div></button><a class="src" href="${o[6]}" target="_blank" rel="noopener">実際にゲストへ出したページを見る</a></div>`).join("")+`</div></section>`).join("");
+{n:"Day 1 午後",t:"13:00–17:30",o:["c-shibuya","c-kappabashi","c-ginza","leather","coffee"]},
+{n:"Day 1 夕方から夜",t:"16:00–21:00",o:["akiba","izakaya","ramen","boat"]},
+{n:"Day 2 終日",t:"10:00–18:00",o:["c-akiba","c-ikebukuro","c-ghibli","custom"]},
+{n:"Day 3 帰国前",t:"7:30–16:00",o:["c-tsukiji","c-meiji","c-ryogoku"]},
+{n:"延泊オプション 金沢",t:"1泊追加",o:["kanazawa","kzsushi"]}];
+const E=window.EXP,pick=S.map(()=>null),$=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const spec=e=>[["所要",e.dur],["開始",e.start],[e.kind=="tour"?"定員":"集合",e.kind=="tour"?e.cap:e.meet],e.kind=="tour"?["集合",e.meet]:null].filter(Boolean).map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join("");
+const card=(e,i,j)=>`<div class="cw"><button type="button" class="card" role="radio" aria-checked="false" data-i="${i}" data-j="${j}">
+<div class="ph"><img src="../img/${e.img}" alt=""></div><span class="chip">選択中</span>
+<div class="body"><div class="lab${e.kind=="course"?" c":""}"><i class="dot${e.kind=="course"?" c":""}"></i>${esc(e.area)}</div>
+<div class="ttl">${esc(e.title)}</div>${e.host?`<div class="by">案内 ${esc(e.host)}（${esc(e.hostNote)}）</div>`:""}
+<div class="dsc">${esc(e.desc)}</div><dl class="spec">${spec(e)}</dl><span class="tog"><span>選ぶ</span></span></div></button>
+<div class="src"><a href="${e.url}" target="_blank" rel="noopener">${e.kind=="tour"?esc(e.src)+"で見る":"ゲストへ出したページ"}</a>${e.rating?`<span class="rt"><b>★${e.rating}</b> ${e.reviews}件</span>`:""}</div></div>`;
+$("main").innerHTML=S.map((s,i)=>`<section class="slot"><div class="slot-h"><h2>${s.n}</h2><span class="t">${s.t}</span><span class="n">${s.o.length}つから選ぶ</span></div><div class="grid${s.o.length%4==0?" g4":""}" role="radiogroup" aria-label="${s.n}">`+s.o.map((k,j)=>card(E[k],i,j)).join("")+`</div></section>`).join("");
 function render(){document.querySelectorAll(".card").forEach(c=>c.setAttribute("aria-checked",pick[c.dataset.i]==+c.dataset.j));
-const n=pick.filter(v=>v!==null).length;$("cnt").textContent=`選択 ${n}/3`;$("sum").disabled=n<1}
+const n=pick.filter(v=>v!==null).length;$("cnt").textContent=`選択 ${n}/${S.length}`;$("sum").disabled=n<1}
 $("main").addEventListener("click",e=>{const c=e.target.closest(".card");if(!c)return;const i=+c.dataset.i,j=+c.dataset.j;pick[i]=pick[i]===j?null:j;render()});
-$("sum").onclick=()=>{$("ta").value=S.map((s,i)=>`${s.n}（${s.t}）\n`+(pick[i]===null?"未選択":S[i].o[pick[i]][0]+"　"+S[i].o[pick[i]][1])).join("\n\n");$("ov").classList.add("on")};
+$("sum").onclick=()=>{$("ta").value=S.map((s,i)=>{if(pick[i]===null)return `${s.n}（${s.t}）\n未選択`;const e=E[s.o[pick[i]]];return `${s.n}（${s.t}）\n${e.area}　${e.title}\n所要 ${e.dur} ／ 開始 ${e.start}`}).join("\n\n");$("ov").classList.add("on")};
 $("close").onclick=()=>$("ov").classList.remove("on");
 $("ov").onclick=e=>{if(e.target.id=="ov")$("ov").classList.remove("on")};
 $("copy").onclick=async()=>{const t=$("ta");try{await navigator.clipboard.writeText(t.value)}catch(_){t.select();document.execCommand("copy")}$("copy").textContent="コピーしました";setTimeout(()=>$("copy").textContent="コピー",1500)};
