@@ -40,6 +40,10 @@ ul.list b{font-weight:700}
 .q li::before{content:counter(q);position:absolute;left:0;top:12px;width:1.6em;height:1.6em;border-radius:50%;background:var(--red);color:#fff;font-size:12px;display:grid;place-items:center;font-weight:700}
 a.btn{display:inline-block;margin-top:16px;background:var(--red);color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:700}
 a.go{display:inline-block;margin:10px 14px 0 0;color:var(--red);font-size:14px;font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;line-height:1.5}a.go::after{content:" →"}ul.list li span a.go:first-of-type{margin-left:0}ul.list span{display:block}
+.hero{max-width:1080px;margin:32px auto 0;padding:0 20px}.hero img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center 40%;border-radius:16px;display:block}.hero figcaption{font-size:13px;color:var(--sub);margin-top:10px}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 28px}.strip img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;display:block}
+.card .shot{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--line);margin-bottom:14px;display:block}
+@media (max-width:600px){.strip{grid-template-columns:1fr 1fr}.hero{padding:0 16px}.hero img{aspect-ratio:4/3}}
 footer{padding:40px 0 64px;color:var(--sub);font-size:13px}
 @media (max-width:600px){h1{font-size:24px}.cards{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.fact{display:flex;align-items:baseline;gap:14px}.fact .k br{display:none}.fact .v{font-size:20px;min-width:4.2em}ul.list li{grid-template-columns:1fr;gap:2px}}
 </style>
@@ -52,6 +56,7 @@ footer{padding:40px 0 64px;color:var(--sub);font-size:13px}
   <p class="lead">市原佑樹（イチハラユウキ）です。<br>秋葉原を中心にアニメ・ポップカルチャーのツアーを運営しています。SusHi Tech Tokyo 2026ではリエゾンとディレクターを担当しました。</p>
   <nav><a href="#guide">1 ガイド</a><a href="#ai">2 AIの実例</a><a href="#teian">3 ご提案</a><a href="#kiki">4 伺いたいこと</a></nav>
 </header>
+<figure class="hero"><img src="img/t08.jpg" alt="ツアーの団体での集合写真" width="1600" height="1200"><figcaption>アメリカからの団体を、ガイドチームで秋葉原に案内した日</figcaption></figure>
 
 <section id="guide">
   <p class="num">01</p>
@@ -61,6 +66,7 @@ footer{padding:40px 0 64px;color:var(--sub);font-size:13px}
     <div class="fact"><div class="v">5エリア</div><div class="k">秋葉原・渋谷・原宿<br>池袋・中野</div></div>
     <div class="fact"><div class="v">英語</div><div class="k">ゲストの約7割が<br>アメリカから</div></div>
   </div>
+  <div class="strip"><img src="img/t05.jpg" alt="家族のゲストとの写真" loading="lazy"><img src="img/t11.jpg" alt="メイドカフェでのゲスト" loading="lazy"><img src="img/t10.jpg" alt="秋葉原の街でのゲスト" loading="lazy"><img src="img/t04.jpg" alt="ガンダム像の前のゲスト" loading="lazy"></div>
   <ul class="list">
     <li><b>1日ツアー</b><span>旅行会社さんからの依頼で、行程作りから当日の案内まで受けています<br><a class="go" href="https://airbnb-trips.pxf.io/MMayn" target="_blank" rel="noopener">ツアーの予約ページ</a><a class="go" href="https://www.instagram.com/yukianimesensei/" target="_blank" rel="noopener">ツアーの様子（Instagram）</a></span></li>
     <li><b>団体</b><span>人数が多い時は、知り合いのガイドとチームを組んで回します</span></li>
@@ -75,7 +81,7 @@ footer{padding:40px 0 64px;color:var(--sub);font-size:13px}
   <div class="cards">
     <div class="card"><span class="who">予約管理</span><h3>予約のかぶりを自動で知らせる</h3><p>複数の予約サイトから届くメールを読み、カレンダーに自動で入れます。ツアー同士が重なった時だけスマホに通知が届きます。</p><a class="go" href="https://yukitchy.github.io/mokumoku-sheet/?d=kaburi-ban" target="_blank" rel="noopener">仕組みの説明を見る</a></div>
     <div class="card"><span class="who">行程作り</span><h3>事前アンケートから行程の叩き台</h3><p>ゲストの好きな作品や希望を集め、回る順番と昼食の候補まで一度に出します。</p><a class="go" href="https://yukitchy.github.io/mokumoku-sheet/?d=akiba-tour-shokunin" target="_blank" rel="noopener">仕組みの説明を見る</a></div>
-    <div class="card"><span class="who">ゲスト対応</span><h3>グループごとの旅のしおりページ</h3><p>ゲストごとに行程と地図を1ページにまとめます。スマホで見られて、印刷もできます。</p><a class="go" href="https://yukitchy.github.io/course-picker/" target="_blank" rel="noopener">これまでのコースを見る</a></div>
+    <div class="card"><img class="shot" src="img/s-course.jpg" alt="モデルコース棚の画面" loading="lazy"><span class="who">ゲスト対応</span><h3>グループごとの旅のしおりページ</h3><p>ゲストごとに行程と地図を1ページにまとめます。これまでに12ページ・28コースを作りました。スマホで見られて、印刷もできます。</p><a class="go" href="https://yukitchy.github.io/course-picker/" target="_blank" rel="noopener">これまでのコースを見る</a></div>
     <div class="card"><span class="who">集客</span><h3>レビューを自動でSNSへ</h3><p>届いたレビューを画像にしてInstagramに投稿するところまで、自動で回しています。</p><a class="go" href="https://www.instagram.com/yukianimesensei/" target="_blank" rel="noopener">Instagramを見る</a></div>
   </div>
   <p style="margin-top:20px;font-size:15px;color:var(--sub)">こうした仕組みは、ほぼ一人でAIと一緒に作っています。</p>
