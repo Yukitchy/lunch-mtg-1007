@@ -18,21 +18,25 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .wrap{max-width:1240px;margin:0 auto;padding:0 16px}
 
 /* hero with floating photos */
-.hero{position:relative;padding:124px 0 36px;text-align:center}
+.hero{position:relative;padding:160px 0 182px;text-align:center}
 .hero h1{position:relative;z-index:2;font-family:var(--disp);font-weight:800;letter-spacing:-.045em;line-height:.95;font-size:clamp(44px,12vw,112px)}
 .hero p{position:relative;z-index:2;margin:18px auto 0;max-width:24em;font-size:17px;line-height:1.45;color:var(--body)}
-.fl{position:absolute;background:var(--card);padding:6px;border-radius:12px;box-shadow:var(--sh);z-index:1}
-.fl img{border-radius:7px;aspect-ratio:4/3;object-fit:cover}
+.fl{position:absolute;background:var(--card);padding:5px;border-radius:12px;box-shadow:var(--sh);z-index:1;display:none}
+.fl img{border-radius:8px;aspect-ratio:4/3;object-fit:cover}
 .fl.v img{aspect-ratio:3/4}
-.f1{width:118px;left:0;top:24px}.f2{width:76px;right:0;top:8px}
-.f3,.f4,.f5,.f6{display:none}
-@media (min-width:900px){
-  .hero{padding:120px 0 150px}
-  .f1{width:200px;left:0;top:40px}.f2{width:140px;right:40px;top:16px}
-  .f3{display:block;width:180px;left:70px;bottom:24px}.f4{display:block;width:210px;right:0;bottom:40px}
-  .f5{display:none}.f6{display:block;width:130px;right:270px;bottom:12px}
+/* phone: 3 above, 3 below */
+.h1{display:block;left:0;top:22px;width:112px}.h2{display:block;left:124px;top:52px;width:70px}.h3{display:block;right:0;top:10px;width:128px}
+.h5{display:block;left:0;bottom:28px;width:100px}.h6{display:block;left:112px;bottom:6px;width:118px}.h7{display:block;right:0;bottom:16px;width:100px}
+@media (max-width:359px){.h2{display:none}.h5{width:88px}.h6{left:98px;width:84px}.h7{width:92px}}
+@media (min-width:1200px){
+  .hero{padding:130px 0 200px}
+  .fl{display:block}
+  .h1{left:0;top:40px;width:200px}.h2{left:222px;top:0;width:78px}.h3{left:auto;right:40px;top:16px;width:150px}
+  .h4{right:0;top:212px;width:200px}.h5{left:30px;top:262px;bottom:auto;width:170px}
+  .h6{left:290px;bottom:12px;width:150px}.h7{right:262px;bottom:0;width:96px}
+  .h8{left:0;bottom:24px;width:110px}.h9{left:calc(50% - 60px);bottom:18px;width:128px}
+  .h10{right:16px;bottom:36px;width:156px}.h11{right:236px;top:0;width:112px}
 }
-
 /* filter pills */
 .pills{position:sticky;top:0;z-index:6;padding:10px 0;background:linear-gradient(var(--bg) 70%,rgba(243,243,244,0))}
 .pills .in{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;justify-content:flex-start}
@@ -52,11 +56,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .pc .m{font-size:14px;color:var(--mute);margin:4px 4px 0}
 .pc .m b{color:var(--ink);font-weight:600}
 .pc:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.heart{transition:background .15s,transform .15s}.heart:active{transform:scale(.9)}
-.heart{position:absolute;right:16px;top:16px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.12)}
-.heart svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:2}
-.heart[aria-pressed=true]{background:var(--accent)}
-.heart[aria-pressed=true] svg{fill:#fff;stroke:#fff}
 
 /* photo carousel */
 .car{position:relative;border-radius:9px;overflow:hidden;background:#e9e9ec;aspect-ratio:4/3}
@@ -64,10 +63,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (min-width:700px){.car.tall{aspect-ratio:3/4}}
 .track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .track::-webkit-scrollbar{display:none}
+.car .one{width:100%;height:100%;object-fit:cover}
 .track img{flex:0 0 100%;height:100%;object-fit:cover;scroll-snap-align:start}
-.ar{position:absolute;top:50%;width:40px;height:40px;margin-top:-20px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.15);transition:opacity .15s}
-.ar svg{width:18px;height:18px;fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.ar.l{left:6px}.ar.r{right:6px}
+.ar{position:absolute;top:50%;width:40px;height:40px;margin-top:-20px;display:grid;place-items:center;transition:opacity .15s}
+.ar::before{content:"";position:absolute;inset:7px;border-radius:50%;background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.ar svg{position:relative;width:13px;height:13px;fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.ar.l{left:2px}.ar.r{right:2px}
 .ar[disabled]{opacity:0;pointer-events:none}
 .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.55));color:#fff;font-size:13px;font-weight:500;display:flex;justify-content:space-between;gap:8px;pointer-events:none}
 .cap span:last-child{opacity:.85;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -98,24 +99,31 @@ dialog::backdrop{background:rgba(17,17,20,.45)}
 .sh .row button{flex:1;border-radius:12px;padding:13px;font-weight:600;font-size:15px;background:var(--bg)}
 .sh .row .pri{background:var(--accent);color:#fff}
 .sh ol{margin:12px 0 0 22px;font-size:17px;line-height:1.55}
+footer summary{cursor:pointer;color:var(--body);font-weight:500;padding:8px 0;min-height:40px}
+footer details p{margin-top:4px}
 footer{margin-top:48px;font-size:13px;line-height:1.5;color:var(--mute);background:var(--bg);padding:12px 0}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="hero">
-    <div class="fl f1"><img src="../../img/x-ramen.jpg" alt=""></div>
-    <div class="fl f2 v"><img src="../../img/c6.jpg" alt=""></div>
-    <div class="fl f3"><img src="../../img/x-kzsushi.jpg" alt=""></div>
-    <div class="fl f4"><img src="../../img/x-boat.jpg" alt=""></div>
-    <div class="fl f5 v"><img src="../../img/x-sandal.jpg" alt=""></div>
-    <div class="fl f6"><img src="../../img/x-coffee.jpg" alt=""></div>
+    <div class="fl h1"><img src="../../img/g/ramen-4.jpg" alt=""></div>
+    <div class="fl h2 v"><img src="../../img/g/akiba-2.jpg" alt=""></div>
+    <div class="fl h3"><img src="../../img/g/boat-3.jpg" alt=""></div>
+    <div class="fl h4"><img src="../../img/g/c-ghibli-4.jpg" alt=""></div>
+    <div class="fl h5"><img src="../../img/g/kzsushi-4.jpg" alt=""></div>
+    <div class="fl h6"><img src="../../img/g/c-shibuya-2.jpg" alt=""></div>
+    <div class="fl h7 v"><img src="../../img/g/sandal-3.jpg" alt=""></div>
+    <div class="fl h8 v"><img src="../../img/g/coffee-3.jpg" alt=""></div>
+    <div class="fl h9"><img src="../../img/g/c-tsukiji-2.jpg" alt=""></div>
+    <div class="fl h10"><img src="../../img/g/kanazawa-3.jpg" alt=""></div>
+    <div class="fl h11"><img src="../../img/g/c-kappabashi-2.jpg" alt=""></div>
     <h1>What do you<br>want to do?</h1>
-    <p>Tap ♡ on anything you like. Then send me your picks and I will plan your free time.</p>
+    <p>Tap a photo to see more. Like the ones you want, then send me your picks. I will plan your free time.</p>
   </header>
 </div>
 <nav class="pills" aria-label="Filter"><div class="wrap"><div class="in" id="f"></div></div></nav>
-<main class="wrap"><div class="wall" id="wall"></div><footer id="cr"></footer></main>
+<main class="wrap"><div class="wall" id="wall"></div><footer><details><summary>Photo credits</summary><p id="cr"></p></details></footer></main>
 
 <div class="tray" id="tray"><div class="thumbs" id="th"></div><span class="n" id="n"></span><button class="go" id="go">Send picks</button></div>
 <dialog id="dlg"><div class="sh" id="sh" data-k=""></div></dialog>
@@ -135,9 +143,9 @@ function car(k,tall){const p=pics(k);
   return `<div class="car${tall?" tall":""}"><div class="track">${p.map(([s],i)=>`<img src="${s}" alt=""${i?' loading="lazy"':""}>`).join("")}</div>
     ${p.length>1?`<button class="ar l" aria-label="Previous photo" disabled>${ARR(0)}</button><button class="ar r" aria-label="Next photo">${ARR(1)}</button>`:""}
     <div class="cap"><span>${esc(p[0][1])}</span>${p.length>1?`<span>1 / ${p.length}</span>`:""}</div></div>`}
-function card(k){const e=EN[k],x=X[k],r=x.kind=="tour"&&x.rating?` · <b>★ ${x.rating}</b>`:"";
-  return `<article class="pc" data-k="${k}" tabindex="0">${car(k,TALL.has(k))}
-    <button class="heart" data-k="${k}" aria-label="Like" aria-pressed="${picked.has(k)}">${HEART}</button>
+function card(k){const e=EN[k],x=X[k],r=x.kind=="tour"&&x.rating?` · <b>★ ${x.rating}</b>`:"",p=pics(k);
+  return `<article class="pc" data-k="${k}" tabindex="0" role="button"><div class="car${TALL.has(k)?" tall":""}"><img class="one" src="${p[0][0]}" alt="">
+    <div class="cap"><span>${esc(p[0][1])}</span>${p.length>1?`<span>${p.length} photos</span>`:""}</div></div>
     <h2>${esc(e.t)}</h2><p class="m">${esc(e.area)} · ${esc(e.dur)}${r}</p></article>`}
 // carousel: arrows scroll one photo, counter + caption follow the scroll
 document.addEventListener("click",ev=>{const a=ev.target.closest(".ar");if(!a)return;ev.stopPropagation();
@@ -154,7 +162,6 @@ function render(cat){cur=cat;
 }
 let lastN=0;addEventListener("resize",()=>{const n=innerWidth>=1100?4:innerWidth>=700?3:1;if(n!=lastN){lastN=n;render(cur)}});
 function sync(){
-  document.querySelectorAll(".heart").forEach(h=>h.setAttribute("aria-pressed",picked.has(h.dataset.k)));
   $("tray").classList.toggle("on",picked.size>0);
   $("th").innerHTML=[...picked].slice(-6).map(k=>`<img src="../../img/${X[k].img}" alt="">`).join("");
   $("n").textContent=picked.size+(picked.size==1?" pick":" picks");
@@ -178,7 +185,7 @@ $("go").onclick=()=>{$("sh").innerHTML=`<div class="in"><h3>Your picks</h3><ol>$
     try{await navigator.clipboard.writeText(t);$("cp").textContent="Copied. Paste it in our chat"}catch(e){prompt("Copy this:",t)}};
   $("dlg").showModal()};
 $("f").onclick=ev=>{const b=ev.target.closest("button");if(!b)return;$("f").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x==b));render(b.dataset.k);if($("wall").getBoundingClientRect().top<64)$("wall").scrollIntoView()};
-$("wall").onclick=ev=>{const h=ev.target.closest(".heart");if(h){toggle(h.dataset.k);return}const c=ev.target.closest(".pc");if(c)open(c.dataset.k)};
+$("wall").onclick=ev=>{const c=ev.target.closest(".pc");if(c)open(c.dataset.k)};
 $("wall").onkeydown=ev=>{if(ev.key=="Enter"&&ev.target.classList.contains("pc"))open(ev.target.dataset.k)};
 $("dlg").onclick=ev=>{if(ev.target==$("dlg"))$("dlg").close()};
 $("cr").textContent=CREDIT;lastN=innerWidth>=1100?4:innerWidth>=700?3:1;render("all");sync();
