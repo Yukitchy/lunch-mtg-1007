@@ -132,7 +132,7 @@ const TALL=new Set(window.TALL||[]),GAL=window.GAL||{};
 const ARR=d=>`<svg viewBox="0 0 24 24"><path d="${d?"M9 5l7 7-7 7":"M15 5l-7 7 7 7"}"/></svg>`;
 const pics=k=>GAL[k]?GAL[k].map(([f,c])=>["../../img/g/"+f+".jpg",c]):[["../../img/"+X[k].img,""]];
 function car(k,tall){const p=pics(k);
-  return `<div class="car${tall?" tall":""}"><div class="track">${p.map(([s])=>`<img src="${s}" alt="">`).join("")}</div>
+  return `<div class="car${tall?" tall":""}"><div class="track">${p.map(([s],i)=>`<img src="${s}" alt=""${i?' loading="lazy"':""}>`).join("")}</div>
     ${p.length>1?`<button class="ar l" aria-label="Previous photo" disabled>${ARR(0)}</button><button class="ar r" aria-label="Next photo">${ARR(1)}</button>`:""}
     <div class="cap"><span>${esc(p[0][1])}</span>${p.length>1?`<span>1 / ${p.length}</span>`:""}</div></div>`}
 function card(k){const e=EN[k],x=X[k],r=x.kind=="tour"&&x.rating?` · <b>★ ${x.rating}</b>`:"";
