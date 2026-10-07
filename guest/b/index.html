@@ -138,7 +138,7 @@ function car(k,tall){const p=pics(k);
 function card(k){const e=EN[k],x=X[k],r=x.kind=="tour"&&x.rating?` · <b>★ ${x.rating}</b>`:"";
   return `<article class="pc" data-k="${k}" tabindex="0">${car(k,TALL.has(k))}
     <button class="heart" data-k="${k}" aria-label="Like" aria-pressed="${picked.has(k)}">${HEART}</button>
-    <h2>${esc(e.t)}</h2><p class="m">${esc(e.area)} · ${esc(e.dur)}${r}</p><p class="d">${esc(e.d)}</p></article>`}
+    <h2>${esc(e.t)}</h2><p class="m">${esc(e.area)} · ${esc(e.dur)}${r}</p></article>`}
 // carousel: arrows scroll one photo, counter + caption follow the scroll
 document.addEventListener("click",ev=>{const a=ev.target.closest(".ar");if(!a)return;ev.stopPropagation();
   const t=a.parentNode.querySelector(".track");t.scrollBy({left:(a.classList.contains("r")?1:-1)*t.clientWidth,behavior:"smooth"})},true);
