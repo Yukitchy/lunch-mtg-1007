@@ -24,13 +24,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .fl{position:absolute;background:var(--card);padding:5px;border-radius:12px;box-shadow:var(--sh);z-index:1;display:none}
 .fl img{border-radius:8px;aspect-ratio:4/3;object-fit:cover}
 .fl.v img{aspect-ratio:3/4}
-/* phone: 3 above, 3 below */
-.h1{display:block;left:0;top:22px;width:112px}.h2{display:block;left:124px;top:52px;width:70px}.h3{display:block;right:0;top:10px;width:128px}
-.h5{display:block;left:0;bottom:28px;width:100px}.h6{display:block;left:112px;bottom:6px;width:118px}.h7{display:block;right:0;bottom:16px;width:100px}
-@media (max-width:359px){.h2{display:none}.h5{width:88px}.h6{left:98px;width:84px}.h7{width:92px}}
+/* phone: top band L-S-M, bottom band mirrored M-S-L */
+.hero{padding:calc(76px + 27%) 0 calc(58px + 27%)}
+.h1{display:block;left:0;top:20px;width:34%}.h2{display:block;left:39%;top:46px;width:20%}.h3{display:block;right:0;top:6px;width:31%}
+.h5{display:block;left:3%;bottom:14px;width:29%}.h7{display:block;left:38%;bottom:30px;width:20%}.h6{display:block;right:0;bottom:4px;width:34%}
+/* tablet: 4 above, 4 below */
+@media (min-width:600px){
+  .hero{padding:calc(66px + 16%) 0 calc(58px + 16%)}
+  .h11,.h4{display:block}
+  .h1{left:0;top:26px;width:21%}.h2{left:25%;top:0;width:10.5%}.h11{left:auto;right:23%;top:10px;width:14%}.h3{right:0;top:40px;width:19%}
+  .h5{left:2%;bottom:24px;width:17%}.h6{left:23%;right:auto;bottom:0;width:20%}.h7{left:auto;right:28%;bottom:34px;width:10.5%}.h4{right:0;bottom:8px;width:21%}
+}
 @media (min-width:1200px){
   .hero{padding:130px 0 200px}
-  .fl{display:block}
+  .fl{display:block;left:auto;right:auto;top:auto;bottom:auto}
   .h1{left:0;top:40px;width:200px}.h2{left:222px;top:0;width:78px}.h3{left:auto;right:40px;top:16px;width:150px}
   .h4{right:0;top:212px;width:200px}.h5{left:30px;top:262px;bottom:auto;width:170px}
   .h6{left:290px;bottom:12px;width:150px}.h7{right:262px;bottom:0;width:96px}
@@ -143,9 +150,9 @@ function car(k,tall){const p=pics(k);
   return `<div class="car${tall?" tall":""}"><div class="track">${p.map(([s],i)=>`<img src="${s}" alt=""${i?' loading="lazy"':""}>`).join("")}</div>
     ${p.length>1?`<button class="ar l" aria-label="Previous photo" disabled>${ARR(0)}</button><button class="ar r" aria-label="Next photo">${ARR(1)}</button>`:""}
     <div class="cap"><span>${esc(p[0][1])}</span>${p.length>1?`<span>1 / ${p.length}</span>`:""}</div></div>`}
-function card(k){const e=EN[k],x=X[k],r=x.kind=="tour"&&x.rating?` · <b>★ ${x.rating}</b>`:"",p=pics(k);
+function card(k){const e=EN[k],x=X[k],r="",p=pics(k);
   return `<article class="pc" data-k="${k}" tabindex="0" role="button"><div class="car${TALL.has(k)?" tall":""}"><img class="one" src="${p[0][0]}" alt="">
-    <div class="cap"><span>${esc(p[0][1])}</span>${p.length>1?`<span>${p.length} photos</span>`:""}</div></div>
+    <div class="cap"><span>${esc(p[0][1])}</span></div></div>
     <h2>${esc(e.t)}</h2><p class="m">${esc(e.area)} · ${esc(e.dur)}${r}</p></article>`}
 // carousel: arrows scroll one photo, counter + caption follow the scroll
 document.addEventListener("click",ev=>{const a=ev.target.closest(".ar");if(!a)return;ev.stopPropagation();
@@ -173,7 +180,7 @@ function open(k){const e=EN[k],x=X[k],tour=x.kind=="tour";
   $("sh").dataset.k=k;$("sh").innerHTML=`${car(k)}<div class="in"><h3>${esc(e.t)}</h3><p>${esc(e.d)}</p>
     <dl><dt>Where</dt><dd>${esc(e.area)}</dd><dt>Time</dt><dd>${esc(e.dur)}</dd><dt>Start</dt><dd>${esc(e.start)}</dd><dt>Meet</dt><dd>${esc(e.meet)}</dd>
     ${e.cap?`<dt>Group</dt><dd>${esc(e.cap)}${e.age?" · age "+e.age:""}</dd>`:""}
-    <dt>Host</dt><dd>${tour?esc(e.host)+(x.rating?` · ★ ${x.rating} (${x.reviews})`:""):"Route by Yuuki"}</dd></dl>
+    <dt>Host</dt><dd>${tour?esc(e.host):"Route by Yuuki"}</dd></dl>
     <div class="row"><button id="x">Close</button><button class="pri" id="lk">${picked.has(k)?"♥ Liked":"♡ Like this"}</button></div></div>`;
   $("x").onclick=()=>$("dlg").close();$("lk").onclick=()=>{toggle(k);$("dlg").close()};$("dlg").showModal()}
 const listText=()=>"My picks:\n"+[...picked].map(k=>`- ${EN[k].t} (${EN[k].area}, ${EN[k].dur})`).join("\n");
