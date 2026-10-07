@@ -22,7 +22,10 @@ h1{font-size:26px;line-height:1.4;font-weight:700}
 .slot h2{font-size:20px;font-weight:700;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;border-bottom:1px solid var(--ink);padding-bottom:8px}
 .slot h2 small{font-size:13px;font-weight:500;color:var(--mute)}
 .grid{display:grid;gap:16px;margin-top:16px;grid-template-columns:1fr}
-.card{display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;background:#fff;border:2px solid var(--line);border-radius:6px;padding:0;overflow:hidden;cursor:pointer;position:relative;transition:border-color 120ms;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.cw{display:flex;flex-direction:column;gap:8px}
+.src{font-size:13px;font-weight:700;color:var(--acc);text-decoration:none;align-self:flex-start}
+.src::after{content:" ↗"}
+.card{flex:1;display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;background:#fff;border:2px solid var(--line);border-radius:6px;padding:0;overflow:hidden;cursor:pointer;position:relative;transition:border-color 120ms;box-shadow:0 1px 2px rgba(0,0,0,.06)}
 .card:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .card[aria-checked=true]{border-color:var(--acc)}
 .ph{aspect-ratio:16/10;display:flex;align-items:flex-end;padding:14px;color:#fff;font-size:28px;font-weight:700;line-height:1.3;overflow:hidden}
@@ -38,6 +41,7 @@ h1{font-size:26px;line-height:1.4;font-weight:700}
 .card[aria-checked=true] .tog{background:var(--acc);border-color:var(--acc);color:#fff}
 .card[aria-checked=true] .tog::before{content:"選択中　"}
 .card[aria-checked=true] .tog span{display:none}
+.cr{margin:8px 0 0;font-size:11px;line-height:1.7}
 footer{margin-top:40px;padding:16px 0 8px;border-top:1px solid var(--line);font-size:12px;color:var(--mute)}
 .bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);box-shadow:0 1px 2px rgba(0,0,0,.06);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
 .bar .in{max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -59,11 +63,12 @@ footer{margin-top:40px;padding:16px 0 8px;border-top:1px solid var(--line);font-
 <div class="wrap">
 <header>
 <h1>空き時間の過ごし方を選ぶ</h1>
-<p class="sub">3日間の視察プログラム ／ 自由時間のオプション（サンプル）</p>
-<p class="intro">各枠からひとつ選んでください。選んだ内容は最後にまとめて送れます。</p>
+<p class="sub">3日間の視察プログラム ／ 自由時間のオプション（見本）</p>
+<p class="intro">各枠からひとつ選んでください。選んだ内容は最後にまとめて送れます。<br>9本とも、実際に海外のゲストへ出したコースです。各カードの下から、そのとき出したページを見られます。</p>
 </header>
 <main id="main"></main>
-<footer>これは見本です。実際の案件では、日程・人数・移動時間に合わせて選択肢を組み直します。</footer>
+<footer>これは見本です。実際の案件では、日程・人数・移動時間に合わせて選択肢を組み直します。店や施設の営業日は案件ごとに確認し直します。
+<p class="cr">写真: Wikimedia Commons ／ Tsutaya-1 (CC BY-SA 3.0)・Sampuru plastic food items (CC BY 2.0)・GINZA SIX Atrium View 201912 (CC BY 4.0)・Akihabara (CC BY 2.0)・Bookshelves with manga (CC BY 2.0)・Ghibli Museum Mitaka 08 (CC BY 2.0)・Tsukiji Outer Market -02 (CC BY-SA 3.0)・Traditional wedding at Meiji-jingu, 2006-10-29 (CC BY-SA 2.0)・The Great Wave off Kanagawa (Public domain)</p></footer>
 </div>
 
 <div class="bar"><div class="in"><span class="cnt" id="cnt">選択 0/3</span><button class="btn" id="sum" disabled>選んだ内容をまとめる</button></div></div>
@@ -76,22 +81,22 @@ footer{margin-top:40px;padding:16px 0 8px;border-top:1px solid var(--line);font-
 
 <script>
 const S=[
-{n:"Day 1 午後",t:"14:00–18:00",o:[
-["秋葉原","アニメとポップカルチャーの街歩き","フィギュア・ゲームセンター・メイドカフェを案内付きで回る。英語ガイド。","3時間","〜30名（ガイド複数で分割）","移動15分","../img/t10.jpg"],
-["中目黒","レザークラフト体験","革の小物を自分で縫って持ち帰る。職人の工房で少人数。","1.5時間","〜5名","移動35分","#8a5a2b"],
-["横浜","製麺所でラーメンを作る","麺の種類を選んで打ち、その麺でラーメンを作って食べる。","3時間","〜8名","移動45分","#b23a3a"]]},
-{n:"Day 2 夕方",t:"17:00–20:00",o:[
-["秋葉原","ゲームセンターとガチャの夜","夜の電気街。クレーンゲーム・レトロゲーム・ガチャ。","2時間","〜20名","移動15分","../img/t04.jpg"],
-["渋谷・原宿","ストリートカルチャー散歩","古着・スニーカー・スクランブル交差点。若手社員向け。","2.5時間","〜15名","移動25分","#2f6b8f"],
-["銀座","文房具と老舗めぐり","伊東屋・鳩居堂など、手土産にもなる買い物。落ち着いた層向け。","2時間","〜10名","移動10分","#4a6b3a"]]},
-{n:"Day 3 午前",t:"09:00–12:00",o:[
-["秋葉原","家族で楽しむアニメ街歩き","同行家族向け。フィギュア探し・プリクラ・お土産。","2.5時間","〜12名","移動15分","../img/t05.jpg"],
-["池袋・中野","サブカルの聖地めぐり","中野ブロードウェイと池袋のアニメショップ。深いファン向け。","3時間","〜10名","移動30分","#6b4a8f"],
-["自由行動","参加しない","この枠はホテルで休む・各自で過ごす。","—","—","—","#777"]]}];
+{n:"Day 1 午後",t:"13:00–17:30",o:[
+["渋谷・代官山・中目黒","坂を下って川まで歩く","スクランブル交差点から20分歩いて代官山の蔦屋書店へ。最後は目黒川沿いのカフェ通り。全部徒歩で、話しながら回れる。","13:00–17:15","渋谷駅ハチ公前 → 代官山T-SITE → 目黒川 → スターバックス リザーブ ロースタリー","c1.jpg","https://yukitchy.github.io/shibuya-walk/#detail-C"],
+["浅草・かっぱ橋","食品サンプルを自分で作る","飲食店の道具街かっぱ橋で、店先の食品サンプルを自分で作る。そのまま歩いて浅草寺と仲見世へ。手を動かす体験と土産が一度に済む。","13:30–17:00","食品サンプル作り → かっぱ橋道具街 → 浅草寺 → 仲見世","c2.jpg","https://yukitchy.github.io/rick-tokyo-oct5/#detail-F"],
+["銀座","文房具と老舗を歩いて回る","伊東屋、三越のデパ地下、木村屋、GINZA SIXの屋上庭園、お茶、民芸品の店。端から端まで約2km、平らで電車なし。","13:30–17:15","伊東屋 → 銀座三越 → 木村屋 → GINZA SIX → 中村藤吉 → たくみ","c3.jpg","https://yukitchy.github.io/rick-tokyo-oct5/#detail-G"]]},
+{n:"Day 2 終日",t:"10:00–18:00",o:[
+["秋葉原","秋葉原を上から下まで","ラジオ会館やまんだらけの大型店と、観光客が見つけにくい小さな店を両方回る。レトロゲーム、メイドカフェ、最後は神田明神。","10:00–17:30","ラジオ会館 → まんだらけ → レトロゲームと裏通り → メイドカフェ → 神田明神","c4.jpg","https://yukitchy.github.io/manga-week/#detail-1"],
+["椎名町・池袋","マンガが生まれた場所","午前は手塚治虫らが住んだアパートを再現したトキワ荘マンガミュージアム。午後は池袋のアニメイト本店、乙女ロード、ポケモンセンター。","10:00–18:00","トキワ荘マンガミュージアム → アニメイト池袋本店 → 乙女ロード → ポケモンセンターメガトウキョー","c5.jpg","https://yukitchy.github.io/manga-week/#detail-2"],
+["三鷹・中野","ジブリ美術館と中野ブロードウェイ","午前はジブリ美術館（チケットは数か月前に予約が必要）。午後は中野ブロードウェイで原画セルや古いコミックを探す。","10:00–17:00","ジブリ美術館 → 井の頭公園 → 中野ブロードウェイ","c6.jpg","https://yukitchy.github.io/manga-week/#detail-3"]]},
+{n:"Day 3 帰国前",t:"7:30–16:00",o:[
+["築地・浜離宮","朝の市場と昼前の抹茶","時差ぼけで早く目が覚める3日目向け。朝の築地場外市場で朝食、浜離宮の茶屋で抹茶。昼過ぎにはホテルへ戻れる。","7:30–12:30","築地場外市場 → 市場で朝食 → 浜離宮恩賜庭園 → 中島の御茶屋","c7.jpg","https://yukitchy.github.io/rick-tokyo-sunday/#detail-A"],
+["明治神宮・代々木・表参道","神宮の森と日曜の公園","明治神宮の森を歩き、代々木公園へ。日曜は楽器やダンスの人たちで公園がにぎわう。昼は表参道、最後に渋谷。","9:30–15:30","明治神宮 → 代々木公園 → 表参道でランチ → 渋谷","c8.jpg","https://yukitchy.github.io/rick-tokyo-sunday/#detail-C"],
+["両国","江戸東京と北斎","両国の博物館を2つ。昼はちゃんこ、国技館と旧安田庭園も通る。屋内中心なので雨の日でも組める。","10:00–15:45","江戸東京博物館 → ちゃんこの昼食 → すみだ北斎美術館 → 国技館・旧安田庭園","c9.jpg","https://yukitchy.github.io/rick-tokyo-sunday/#detail-B"]]}];
 const pick=[null,null,null],$=id=>document.getElementById(id);
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 $("main").innerHTML=S.map((s,i)=>`<section class="slot"><h2>${s.n}<small>（${s.t}）</small></h2><div class="grid" role="radiogroup" aria-label="${s.n}">`+
-s.o.map((o,j)=>`<button type="button" class="card" role="radio" aria-checked="false" data-i="${i}" data-j="${j}"><div class="ph${o[6][0]=="#"?"":" im"}" ${o[6][0]=="#"?`style="background:${o[6]}"`:""}>${o[6][0]=="#"?esc(o[0]):`<img src="${o[6]}" alt="">`}</div><span class="chip">選択中</span><div class="body"><div class="lab">${esc(o[0])}</div><div class="ttl">${esc(o[1])}</div><div class="dsc">${esc(o[2])}</div><div class="meta">${o[3]} ・ ${o[4]} ・ ${o[5]=="—"?"—":"日本橋から"+o[5]}</div><span class="tog">${"<span>選ぶ</span>"}</span></div></button>`).join("")+`</div></section>`).join("");
+s.o.map((o,j)=>`<div class="cw"><button type="button" class="card" role="radio" aria-checked="false" data-i="${i}" data-j="${j}"><div class="ph im"><img src="../img/${o[5]}" alt=""></div><span class="chip">選択中</span><div class="body"><div class="lab">${esc(o[0])}</div><div class="ttl">${esc(o[1])}</div><div class="dsc">${esc(o[2])}</div><div class="meta">${o[3]}<br>${esc(o[4])}</div><span class="tog"><span>選ぶ</span></span></div></button><a class="src" href="${o[6]}" target="_blank" rel="noopener">実際にゲストへ出したページを見る</a></div>`).join("")+`</div></section>`).join("");
 function render(){document.querySelectorAll(".card").forEach(c=>c.setAttribute("aria-checked",pick[c.dataset.i]==+c.dataset.j));
 const n=pick.filter(v=>v!==null).length;$("cnt").textContent=`選択 ${n}/3`;$("sum").disabled=n<1}
 $("main").addEventListener("click",e=>{const c=e.target.closest(".card");if(!c)return;const i=+c.dataset.i,j=+c.dataset.j;pick[i]=pick[i]===j?null:j;render()});
