@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>旅行業の橋渡し 商品案</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23C92A3A'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>橋</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../s.css">
+<style>
+.flow{display:grid;grid-template-columns:1fr 1fr 1.2fr 1fr 1fr;align-items:center;gap:0;margin-top:28px}
+.node{background:var(--soft);border-radius:12px;padding:14px 16px;text-align:center}
+.node small{display:block;font-size:13px;color:var(--mute);line-height:1.5}
+.node b{display:block;font-size:17px;line-height:1.5}
+.node.main{background:var(--ink);color:#fff}
+.node.main small{color:#cfcfcf}
+.edge{text-align:center;padding:0 8px;font-size:13px;line-height:1.5;color:var(--sub)}
+.edge i{display:block;font-style:normal;font-size:22px;line-height:1.2;color:var(--red);font-weight:700}
+.direct{grid-column:1/-1;margin:10px 9% 0;border:1px solid var(--ink);border-top:0;border-radius:0 0 12px 12px;padding:8px 14px 10px;text-align:center;font-size:14px;color:var(--sub)}
+.direct b{color:var(--ink)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:36px}
+.blk{border-top:2px solid var(--ink);padding:14px 0 28px}
+.blk h2{margin-bottom:10px}
+.blk ul,.blk ol{padding-left:1.3em;font-size:15px}
+.blk li{margin-top:6px}
+.blk li::marker{color:var(--red);font-weight:700}
+.who{display:grid;grid-template-columns:7.5em 1fr;gap:4px 12px;font-size:15px}
+.who dt{font-weight:700}
+.who dd{color:var(--sub)}
+.who dt,.who dd{padding:8px 0;border-bottom:1px solid var(--line)}
+.who dt:last-of-type,.who dd:last-of-type{border-bottom:0}
+.own{font-size:13px;font-weight:700;color:var(--red);margin-right:6px}
+.note{margin-top:4px}
+@media screen and (max-width:760px){
+  .flow{grid-template-columns:1fr;gap:0}
+  .edge{padding:8px 0}
+  .edge i{transform:rotate(90deg);width:1em;margin:0 auto}
+  .direct{margin:10px 0 0;border-radius:12px;border-top:1px solid var(--ink)}
+  .grid{grid-template-columns:1fr}
+}
+@media(max-width:420px){.who{grid-template-columns:1fr;gap:0}.who dt{border-bottom:0;padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<p class="eyebrow">ランチの​柱3 旅行業の​免許</p>
+<h1>契約は​Mioさんの​会社、​体験は​ユウキ</h1>
+<p class="lead">宿や​移動を​含む​旅程を​売るには​旅行業の​登録が​要る、と​いうのが​ランチでの​前提でした。​登録の​ある​Mioさんの​会社が​契約主体、​ユウキが​体験の​提供者と​いう​形です。<span class="chk">​要確認</span>は​作業会で​詰める​項目で、​法律上の​線引きは​断定していません。</p>
+</header>
+<main>
+<div aria-label="ゲスト、Mioさんの会社、ユウキの関係" class="flow" role="group">
+<div class="node"><small>申し込む​人</small><b>ゲスト</b></div>
+<div class="edge"><i>→</i>申し込みと​代金</div>
+<div class="node main"><small>契約主体・旅行業の​登録あり</small><b>Mioさんの​会社</b></div>
+<div class="edge"><i>→</i>体験の​依頼と、​手数料を​引いた​支払い</div>
+<div class="node"><small>体験の​提供者</small><b>ユウキ</b></div>
+<div class="direct"><b>当日は​ユウキが​ゲストを​直接案内する。</b>​契約と​請求は​Mioさんの​会社の​名前で​出る。</div>
+</div>
+<div class="grid">
+<section class="blk">
+<h2>お金の​流れ</h2>
+<ul>
+<li>ゲストは​Mioさんの​会社に、​商品の​代金を​払う。</li>
+<li>Mioさんの​会社が​手数料を​引き、​残りを​ユウキに​払う。</li>
+<li>手数料は​数パーセント。​率は​未定。​他の​ガイドの​商品にも​同じ率で​開ける​形に​する。</li>
+<li>代金の​受け取り方、​ユウキへの​支払い​時期、​請求書と​消費税の​扱い。 <span class="chk">要確認</span>​（Mioさんの​税理士）</li>
+</ul>
+</section>
+<section class="blk">
+<h2>責任の​分担</h2>
+<dl class="who">
+<dt>Mioさんの​会社</dt><dd>契約の​当事者。​取引条件の​説明、​キャンセル規定、​問い合わせと​トラブルの​一次窓口。</dd>
+<dt>ユウキ</dt><dd>体験の​中身、​当日の​案内と​安全の​管理、​商品ページの​原稿と​写真、​予約カレンダーの​空き管理。</dd>
+<dt>未定</dt><dd>事故の​時の​賠償の​持ち方、​保険の​手配、​悪天候での​中止判断、​キャンセル費用の​分け方。 <span class="chk">要確認</span></dd>
+</dl>
+</section>
+<section class="blk">
+<h2>ゲストから​見た​導線</h2>
+<ol>
+<li>ユウキの​サイトや​SNSで​商品ページを​見つける。​ページは​ユウキの​ブランドで​見せる。</li>
+<li>申し込む。​契約書面の​会社名は​Mioさんの​会社。​登録番号の​表示の​しかた <span class="chk">要確認</span></li>
+<li>確認メールが​届き、​事前アンケートに​答える。</li>
+<li>当日、​ユウキが​案内する。</li>
+<li>終わった​あとに、​お礼と​レビューの​お願いが​届く。</li>
+</ol>
+</section>
+<section class="blk">
+<h2>最初の​1件の​進め方</h2>
+<ol>
+<li><span class="own">ふたり</span>商品を​1本に​絞る。​例は​秋葉原1日＋宿泊＋送迎。​作業会で​決める。​宿と​送迎の​手配先は​未定。</li>
+<li><span class="own">Mioさん</span>どの​手配が​旅行業に​あたるかを​整理し、​手数料と​責任の​分担の​案を​出す。 <span class="chk">要確認</span></li>
+<li><span class="own">ユウキ</span>商品ページの​案を​出す。​含まれる​もの、​含まれない​もの、​集合場所、​写真。</li>
+<li><span class="own">Mioさん</span>​約款と​キャンセル規定を、​Mioさんの​会社の​形式で​整える。 <span class="chk">要確認</span></li>
+<li><span class="own">ふたり</span>1組だけ試して、​お金の​流れと​責任の​分担を​見直す。​その​あと、​他の​ガイドの​商品にも​同じ型を​開く。</li>
+</ol>
+</section>
+</div>
+<p class="note"><b>登録の​種類、​約款、​保険、​表示の​義務は、​Mioさんと​専門家に​確認してから​決めます。</b>​この​ページは​相談の​叩き台で、​法的な​判断ではありません。</p>
+</main>
+<footer>市原佑樹​（秋葉原アニメツアー） ／ <a href="../">作業会キットに​戻る</a></footer>
+</div>
+</body>
+</html>
